@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Footer from "../components/Footer.astro";
+import RelatedCities from "../components/RelatedCities.astro";
 import { ACTIVE_COLLECTION } from "../active-collection";
 import { siteConfig } from "../site-config";
 import {
@@ -164,6 +165,7 @@ const faqSchema = buildFaqSchema(faqItems);
             ))
           }
         </section>
+        <RelatedCities currentSlug={entrySlug} state={pageLocation?.state} />
       </article>
     </main>
     <Footer />

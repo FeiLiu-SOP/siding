@@ -1,0 +1,96 @@
+---
+import { getCollection } from "astro:content";
+import { ACTIVE_COLLECTION, type ActiveCollectionKey } from "../active-collection";
+import { resolvePageLocation } from "../lib/location";
+import { siteConfig } from "../site-config";
+
+interface Props {
+  currentSlug: string;
+  /** Two-letter US state, uppercase (from resolvePageLocation) */
+  state: string | null | undefined;
+}
+
+const { currentSlug, state } = Astro.props;
+const st = (state ?? "").trim().toUpperCase().slice(0, 2);
+
+let links: { href: string; title: string }[] = [];
+
+if (st.length === 2) {
+  const posts = await getCollection(ACTIVE_COLLECTION);
+  const collection = ACTIVE_COLLECTION as ActiveCollectionKey;
+  const candidates: { slug: string; title: string }[] = [];
+
+  for (const p of posts) {
+    const slug = (p.slug ?? p.id ?? "").replace(/\.(md|mdx)$/i, "");
+    if (!slug || slug === currentSlug) continue;
+    const loc = resolvePageLocation({
+      collection,
+      title: p.data.title,
+      slug,
+      fmCity: p.data.city,
+      fmState: p.data.state,
+      fmZip: p.data.zipCode,
+    });
+    if (loc && loc.state === st) {
+      candidates.push({ slug, title: p.data.title });
+    }
+  }
+
+  const shuffled = [...candidates];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const a = shuffled[i]!;
+    const b = shuffled[j]!;
+    shuffled[i] = b;
+    shuffled[j] = a;
+  }
+
+  links = shuffled.slice(0, 10).map((c) => ({
+    href: `/${c.slug}/`,
+    title: c.title,
+  }));
+}
+---
+
+{
+  links.length > 0 ? (
+    <section class="related-cities" aria-labelledby="related-cities-title">
+      <h2 id="related-cities-title">More {siteConfig.nicheLabel} in {st}</h2>
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href}>{l.title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : null
+}
+
+<style>
+  .related-cities {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e2e8f0;
+  }
+  .related-cities h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    color: #0f172a;
+  }
+  .related-cities ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: #334155;
+  }
+  .related-cities li {
+    margin: 0.35rem 0;
+  }
+  .related-cities a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .related-cities a:hover {
+    text-decoration: underline;
+  }
+</style>

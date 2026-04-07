@@ -8,8 +8,16 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:roofing": "cross-env ACTIVE_COLLECTION=roofing astro build",
+    "build:plumbing": "cross-env ACTIVE_COLLECTION=plumbing astro build",
+    "build:pestcontrol": "cross-env ACTIVE_COLLECTION=pestcontrol astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "diversity": "cd .. && go run ./scripts/diversity -dist absent-apogee/dist",
+    "diversity:soft": "cd .. && go run ./scripts/diversity -dist absent-apogee/dist -no-fail"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
