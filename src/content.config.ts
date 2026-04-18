@@ -37,5 +37,27 @@ const pestcontrol = defineCollection({
   schema: collectionSchema,
 });
 
+const waterDamage = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/water-damage" }),
+  schema: collectionSchema,
+});
+
+const sidingServices = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/siding-services" }),
+  schema: collectionSchema,
+});
+
+const plumbingV2 = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/plumbing-v2" }),
+  schema: collectionSchema,
+});
+
 /** 新垂直：在此增加 `defineCollection` + 目录 `src/content/<niche>/`，并改 `active-collection.ts` 的 ALLOWED */
-export const collections = { roofing, plumbing, pestcontrol };
+export const collections = {
+  roofing,
+  plumbing,
+  pestcontrol,
+  "water-damage": waterDamage,
+  "siding-services": sidingServices,
+  "plumbing-v2": plumbingV2,
+};

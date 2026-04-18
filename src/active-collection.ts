@@ -1,9 +1,17 @@
 /**
  * 方案 B：构建时只编译一个 niche 目录。与 `content.config.ts` 里的 collection 名一致。
  * 未设置时默认为 `roofing`，与迁移前行为一致。
- * 新增领域：在 ALLOWED、content.config.ts、Go `niches` 三处同步扩展。
+ * 新增领域：在 ALLOWED、content.config.ts、Go `nicheRegistry` 等处同步扩展；完整清单见仓库根目录
+ * `docs/CONTENT_PIPELINE.md` 第四节 Checklist。
  */
-const ALLOWED = ["roofing", "plumbing", "pestcontrol"] as const;
+const ALLOWED = [
+  "roofing",
+  "plumbing",
+  "pestcontrol",
+  "water-damage",
+  "siding-services",
+  "plumbing-v2",
+] as const;
 
 export type ActiveCollectionKey = (typeof ALLOWED)[number];
 

@@ -2,7 +2,14 @@
 import { getCollection } from "astro:content";
 import Footer from "../../components/Footer.astro";
 import { ACTIVE_COLLECTION } from "../../active-collection";
-import { canonicalPageUrl, internalPath, siteConfig } from "../../site-config";
+import { canonicalPageUrl, getNicheLabelForSeed, internalPath, siteConfig } from "../../site-config";
+import {
+  REALTORS_AT_THE_BEACH_WATER_DAMAGE,
+  matchesRealtorsAtTheBeachWaterDamage,
+} from "../../domain-templates/realtorsatthebeach.com-water-damage";
+import {
+  REALTORS_AT_THE_BEACH_PLUMBING_V2,
+} from "../../domain-templates/realtorsatthebeach.com-plumbing-v2";
 
 type EntryLike = {
   id?: string;
@@ -11,12 +18,6 @@ type EntryLike = {
     title: string;
     city?: string;
   };
-};
-
-const SERVICE_LABEL: Record<typeof ACTIVE_COLLECTION, string> = {
-  roofing: "Roofing",
-  plumbing: "Plumbing",
-  pestcontrol: "Pest Control",
 };
 
 export async function getStaticPaths() {
@@ -58,9 +59,27 @@ function entryPath(entry: Pick<EntryLike, "id" | "slug">) {
   return raw.replace(/\.(md|mdx)$/i, "");
 }
 
-const serviceLabel = SERVICE_LABEL[ACTIVE_COLLECTION];
+const serviceLabel = getNicheLabelForSeed(`state:${stateCode}`);
 const canonicalUrl = canonicalPageUrl(stateParam);
 const pageUrl = canonicalUrl;
+
+const enableRealtorsAtTheBeachWaterDamageIsolation = matchesRealtorsAtTheBeachWaterDamage({
+  domainOrUrl: siteConfig.canonicalOrigin,
+  activeCollection: ACTIVE_COLLECTION,
+});
+
+const themeAccent = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.theme.accent
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+    ? REALTORS_AT_THE_BEACH_WATER_DAMAGE.theme.accent
+    : "#1d4ed8";
+
+const themeFontFamily = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.theme.fontFamily
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+    ? REALTORS_AT_THE_BEACH_WATER_DAMAGE.theme.fontFamily
+    : "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif";
+
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -70,7 +89,10 @@ const pageSchema = {
 };
 ---
 
-<html lang="en">
+<html
+  lang="en"
+  style={`--theme-accent:${themeAccent};font-family:${themeFontFamily};`}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -85,7 +107,7 @@ const pageSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
     <style>
       :root {
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        /* font-family is set on <html> via inline style for Astro CSS stability */
       }
       body {
         margin: 0;
@@ -118,7 +140,7 @@ const pageSchema = {
         margin: 0.2rem 0;
       }
       a {
-        color: #1d4ed8;
+        color: var(--theme-accent, #1d4ed8);
         text-decoration: none;
       }
       a:hover {

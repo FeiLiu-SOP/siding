@@ -16,6 +16,8 @@ function stableHash(input: string) {
 }
 const seed = variantSeed ?? "footer";
 const pick = stableHash(seed) % 5;
+const baseUrl = import.meta.env.BASE_URL ?? "/";
+const logoSrc = `${baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`}bbb-a-plus.svg`;
 const footerLines = [
   "Licensed & insured service coordination across the U.S.",
   "Certified intake and insured dispatch coverage in multiple regions.",
@@ -36,11 +38,11 @@ const verifyLines = [
     style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #ccc;"
   >
     <img
-      src="/logo.png"
-      width="100"
-      height="100"
+      src={logoSrc}
+      width="120"
+      height="52"
       alt="A+ Rated"
-      style="width: 100px; height: auto; display: block; margin: 0 auto;"
+      style="width: 120px; height: auto; display: block; margin: 0 auto;"
       loading="lazy"
       decoding="async"
     />

@@ -30,11 +30,13 @@ const fullSiteUrl = augmentHubPathForMainSite(
   disableAugment
 );
 const { site, base } = toAstroSiteAndBase(fullSiteUrl, activeCollection);
+const normalizedCollection = String(activeCollection).toLowerCase().trim();
+const enforcedBase = normalizedCollection === "plumbing-v2" ? "/plumbing/" : base;
 
 // https://astro.build/config
 export default defineConfig({
   site,
-  base,
+  base: enforcedBase,
   integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkStripRoutingMarkers],

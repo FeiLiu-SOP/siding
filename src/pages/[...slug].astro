@@ -3,7 +3,14 @@ import { getCollection, render } from "astro:content";
 import Footer from "../components/Footer.astro";
 import RelatedCities from "../components/RelatedCities.astro";
 import { ACTIVE_COLLECTION } from "../active-collection";
-import { canonicalPageUrl, internalPath, siteConfig } from "../site-config";
+import { canonicalPageUrl, getNicheLabelForSeed, internalPath, siteConfig } from "../site-config";
+import {
+  REALTORS_AT_THE_BEACH_WATER_DAMAGE,
+  matchesRealtorsAtTheBeachWaterDamage,
+} from "../domain-templates/realtorsatthebeach.com-water-damage";
+import {
+  REALTORS_AT_THE_BEACH_PLUMBING_V2,
+} from "../domain-templates/realtorsatthebeach.com-plumbing-v2";
 import {
   buildFaqSchema,
   buildLocalBusinessSchema,
@@ -29,17 +36,40 @@ const { Content } = await render(entry);
 const post = entry;
 const entrySlug = entrySlugParam || (post.slug ?? post.id ?? "").replace(/\.(md|mdx)$/i, "");
 const pageUrl = canonicalPageUrl(entrySlug);
+const pageNicheLabel = getNicheLabelForSeed(entrySlug);
+function titleCase(s: string) {
+  return s
+    .split(/\s+/g)
+    .filter(Boolean)
+    .map((w) => w.slice(0, 1).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+function cityFromSlug(slugText: string) {
+  const m = slugText.match(/^(.*)-([a-z]{2})-(\d{5})$/i);
+  if (!m) return null;
+  let prefixAndCity = m[1]!;
+  const pfx = `${String(ACTIVE_COLLECTION)}-`.toLowerCase();
+  if (prefixAndCity.toLowerCase().startsWith(pfx)) {
+    prefixAndCity = prefixAndCity.slice(pfx.length);
+  }
+  const city = prefixAndCity.split("-").filter(Boolean).join(" ").trim();
+  return city ? titleCase(city) : null;
+}
+const pageCity = cityFromSlug(entrySlug);
 const stateCodeFromSlug = (() => {
   const m = entrySlug.match(/-([a-z]{2})-\d{5}$/i);
   return m ? m[1]!.toUpperCase() : null;
 })();
+const pageHeading = pageCity && stateCodeFromSlug
+  ? `${pageNicheLabel} in ${pageCity}, ${stateCodeFromSlug}`
+  : post.data.title;
 
 // Action 1: footer random internal link from backup pool (state index + random city)
 const backupCandidates: { href: string; label: string }[] = [];
 if (stateCodeFromSlug) {
   backupCandidates.push({
     href: internalPath(stateCodeFromSlug.toLowerCase()),
-    label: `Browse ${siteConfig.nicheLabel} in ${stateCodeFromSlug}`,
+    label: `Browse ${pageNicheLabel} in ${stateCodeFromSlug}`,
   });
 }
 const other = posts.filter((p) => (p.slug ?? p.id ?? "").replace(/\.(md|mdx)$/i, "") !== entrySlug);
@@ -48,7 +78,7 @@ if (other.length > 0) {
   const pickSlug = (pick.slug ?? pick.id ?? "").replace(/\.(md|mdx)$/i, "");
   backupCandidates.push({
     href: internalPath(pickSlug),
-    label: `Another ${siteConfig.nicheLabel} page`,
+    label: `Another ${pageNicheLabel} page`,
   });
 }
 const footerExtraLink =
@@ -79,33 +109,33 @@ const faqCount = 3 + (stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|faqCount`) %
 const pageFaqItems = pickFaqSubset(faqItems, `${ACTIVE_COLLECTION}|${entrySlug}|faq`, faqCount);
 const ctaVariants = [
   {
-    title: `24/7 Local ${siteConfig.nicheLabel} Emergency Service`,
+    title: `24/7 Local ${pageNicheLabel} Emergency Service`,
     meta: "Fast dispatch, transparent pricing, and free inspection availability.",
   },
   {
-    title: `Same-Day ${siteConfig.nicheLabel} Support Options`,
+    title: `Same-Day ${pageNicheLabel} Support Options`,
     meta: "Rapid scheduling windows, scope review, and straightforward next-step guidance.",
   },
   {
-    title: `Local ${siteConfig.nicheLabel} Dispatch and Response`,
+    title: `Local ${pageNicheLabel} Dispatch and Response`,
     meta: "Clear intake, practical timing expectations, and direct call routing.",
   },
   {
-    title: `${siteConfig.nicheLabel} Help for Urgent Property Issues`,
+    title: `${pageNicheLabel} Help for Urgent Property Issues`,
     meta: "Quick coordination, service planning, and transparent appointment communication.",
   },
   {
-    title: `On-Demand ${siteConfig.nicheLabel} Service Availability`,
+    title: `On-Demand ${pageNicheLabel} Service Availability`,
     meta: "Responsive local coverage with call-first scheduling and pricing clarity.",
   },
 ];
 const ctaVariant = ctaVariants[stableHash(`${entrySlug}|cta`) % ctaVariants.length]!;
 const serviceLineVariants = [
-  `Licensed local technicians available for urgent ${siteConfig.nicheLabel.toLowerCase()} service calls and rapid response.`,
-  `Certified dispatch coverage for time-sensitive ${siteConfig.nicheLabel.toLowerCase()} requests and urgent property issues.`,
-  `Qualified local routing for priority ${siteConfig.nicheLabel.toLowerCase()} calls with clear intake verification.`,
-  `Insured scheduling support for urgent ${siteConfig.nicheLabel.toLowerCase()} service needs and same-day windows where available.`,
-  `Local service coordination for ${siteConfig.nicheLabel.toLowerCase()} requests with practical timelines and scope clarity.`,
+  `Licensed local technicians available for urgent ${pageNicheLabel.toLowerCase()} service calls and rapid response.`,
+  `Certified dispatch coverage for time-sensitive ${pageNicheLabel.toLowerCase()} requests and urgent property issues.`,
+  `Qualified local routing for priority ${pageNicheLabel.toLowerCase()} calls with clear intake verification.`,
+  `Insured scheduling support for urgent ${pageNicheLabel.toLowerCase()} service needs and same-day windows where available.`,
+  `Local service coordination for ${pageNicheLabel.toLowerCase()} requests with practical timelines and scope clarity.`,
 ];
 const serviceLine =
   serviceLineVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|svcLine`) % serviceLineVariants.length]!;
@@ -119,11 +149,11 @@ const callBtnVariants = [
 const callBtnLabel =
   callBtnVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|callBtn`) % callBtnVariants.length]!;
 const headerVariants = [
-  `National ${siteConfig.nicheLabel} Intake & Dispatch`,
-  `${siteConfig.nicheLabel} Service Routing Network`,
-  `Local ${siteConfig.nicheLabel} Coverage Coordination`,
-  `${siteConfig.nicheLabel} Scheduling & Response Hub`,
-  `Regional ${siteConfig.nicheLabel} Service Access Point`,
+  `National ${pageNicheLabel} Intake & Dispatch`,
+  `${pageNicheLabel} Service Routing Network`,
+  `Local ${pageNicheLabel} Coverage Coordination`,
+  `${pageNicheLabel} Scheduling & Response Hub`,
+  `Regional ${pageNicheLabel} Service Access Point`,
 ];
 const headerVariant = headerVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|header`) % headerVariants.length]!;
 const faqTitleVariants = [
@@ -134,10 +164,74 @@ const faqTitleVariants = [
   "Help Center: FAQ",
 ] as const;
 const faqTitle = faqTitleVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|faqTitle`) % faqTitleVariants.length]!;
+const geoTitleVariants = [
+  "Regional Infrastructure Brief",
+  "Local Coverage Snapshot",
+  "Area Routing Notes",
+  "Site Conditions Overview",
+  "Dispatch Terrain Summary",
+] as const;
+const geoTitle = geoTitleVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|geoTitle`) % geoTitleVariants.length]!;
+const elevationLabelVariants = [
+  "Elevation context",
+  "Terrain elevation note",
+  "Height reference band",
+  "Elevation snapshot",
+  "Topographic elevation note",
+] as const;
+const elevationLabel =
+  elevationLabelVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|elevationLabel`) % elevationLabelVariants.length]!;
+const zipSnapshotVariants = [
+  "ZIP coverage snapshot (sampled):",
+  "ZIP sector sample:",
+  "Local ZIP coverage preview:",
+  "Service ZIP sample:",
+  "Nearby ZIP snapshot:",
+] as const;
+const zipSnapshotLabel =
+  zipSnapshotVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|zipSnapshot`) % zipSnapshotVariants.length]!;
+const zipViewVariants = [
+  "View ZIP list",
+  "Open ZIP sample",
+  "Expand ZIP coverage",
+  "Review ZIP sectors",
+  "Show ZIP markers",
+] as const;
+const zipViewLabel = zipViewVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|zipView`) % zipViewVariants.length]!;
+const transitLabelVariants = [
+  "Transit markers:",
+  "Routing markers:",
+  "Local path markers:",
+  "Coverage corridors:",
+  "Dispatch path notes:",
+] as const;
+const transitLabel =
+  transitLabelVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|transitLabel`) % transitLabelVariants.length]!;
+const transitViewVariants = [
+  "View transit markers",
+  "Open routing markers",
+  "Expand path notes",
+  "Review corridor list",
+  "Show dispatch markers",
+] as const;
+const transitViewLabel =
+  transitViewVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|transitView`) % transitViewVariants.length]!;
+const relatedTitleVariants = [
+  `Nearby Recovery Links in ${stateCodeFromSlug ?? "your state"}`,
+  `Local Cleanup Options in ${stateCodeFromSlug ?? "your state"}`,
+  `More Response Routes in ${stateCodeFromSlug ?? "your state"}`,
+  `Regional Restoration Paths in ${stateCodeFromSlug ?? "your state"}`,
+  `Extra City Coverage in ${stateCodeFromSlug ?? "your state"}`,
+] as const;
+const relatedTitle =
+  relatedTitleVariants[stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|relatedTitle`) % relatedTitleVariants.length]!;
+const showFaq = stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|showFaq`) % 10 >= 3;
+const showRelated = stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|showRelated`) % 10 >= 3;
 const stateNotice = stateCodeFromSlug
   ? `Notice: This ${stateCodeFromSlug} service node is optimized for local topographic and seasonal conditions.`
   : "Notice: This service node is optimized for local topographic and seasonal conditions.";
 const telHref = `tel:${siteConfig.phoneE164.replace(/^\+/, "")}`;
+const enableMobileStickyCall = String(import.meta.env.PUBLIC_MOBILE_STICKY_CALL ?? "").trim() === "1";
 
 // Action 3: Geo brief section data from frontmatter (truthy only; Astro just displays)
 const geo = {
@@ -202,6 +296,44 @@ const pageFaqItemsFinal = pageFaqItems.map((item, idx) => {
   };
 });
 
+const enableRealtorsAtTheBeachWaterDamageIsolation = matchesRealtorsAtTheBeachWaterDamage({
+  domainOrUrl: siteConfig.canonicalOrigin,
+  activeCollection: ACTIVE_COLLECTION,
+});
+
+const themeAccent = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.theme.accent
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+    ? REALTORS_AT_THE_BEACH_WATER_DAMAGE.theme.accent
+    : "#1d4ed8";
+
+const themeFontFamily = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.theme.fontFamily
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+    ? REALTORS_AT_THE_BEACH_WATER_DAMAGE.theme.fontFamily
+    : 'Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+
+const domPrefix = ACTIVE_COLLECTION === "plumbing-v2"
+  ? `${REALTORS_AT_THE_BEACH_PLUMBING_V2.domPrefixBase}-${stableHash(
+      `${siteConfig.canonicalOrigin}|${entrySlug}|dom`,
+    )}`
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+    ? `${REALTORS_AT_THE_BEACH_WATER_DAMAGE.domPrefixBase}-${stableHash(
+        `${siteConfig.canonicalOrigin}|${entrySlug}|dom`,
+      )}`
+    : null;
+
+const articleBodyId = domPrefix ? `${domPrefix}-article-md-body` : "article-md-body";
+const articleBodyClass = domPrefix ? `${domPrefix}--article-content` : "article-content";
+
+const serviceInfoClass = domPrefix ? `${domPrefix}--service-info` : "service-info";
+const phoneBtnClass = domPrefix ? `${domPrefix}--phone-btn` : "phone-btn";
+const geoBriefClass = domPrefix ? `${domPrefix}--geo-brief` : "geo-brief";
+const faqClass = domPrefix ? `${domPrefix}--faq` : "faq";
+
+const geoBriefTitleId = domPrefix ? `${domPrefix}-geo-brief-title` : "geo-brief-title";
+const faqTitleId = domPrefix ? `${domPrefix}-faq-title` : "faq-title";
+
 const localBusinessSchema = buildLocalBusinessSchema({
   collection: ACTIVE_COLLECTION,
   pageTitle: post.data.title,
@@ -212,28 +344,43 @@ const localBusinessSchema = buildLocalBusinessSchema({
 const faqSchema = buildFaqSchema(pageFaqItemsFinal);
 
 // Action 3: stable DOM section randomizer for 4 blocks (content / geo / faq / related)
-const orderSeed = stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|order`);
 const blocks = ["content", "geo", "faq", "related"] as const;
-const blockOrder = [...blocks];
-{
-  let s = orderSeed;
-  for (let i = blockOrder.length - 1; i > 0; i--) {
-    s = Math.imul(s ^ (s >>> 13), 1274126177) >>> 0;
-    const j = s % (i + 1);
-    const a = blockOrder[i]!;
-    const b = blockOrder[j]!;
-    blockOrder[i] = b;
-    blockOrder[j] = a;
-  }
-}
+const visibleBlocks = blocks.filter((k) => {
+  if (k === "faq") return showFaq;
+  if (k === "related") return showRelated;
+  return true;
+});
+const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.blockOrder.filter((k) => visibleBlocks.includes(k))
+  : enableRealtorsAtTheBeachWaterDamageIsolation
+  ? REALTORS_AT_THE_BEACH_WATER_DAMAGE.blockOrder.filter((k) => visibleBlocks.includes(k))
+  : (() => {
+      const orderSeed = stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|order`);
+      const order = [...visibleBlocks];
+      {
+        let s = orderSeed;
+        for (let i = order.length - 1; i > 0; i--) {
+          s = Math.imul(s ^ (s >>> 13), 1274126177) >>> 0;
+          const j = s % (i + 1);
+          const a = order[i]!;
+          const b = order[j]!;
+          order[i] = b;
+          order[j] = a;
+        }
+      }
+      return order;
+    })();
 ---
 
-<html lang="en">
+<html
+  lang="en"
+  style={`--theme-accent:${themeAccent};font-family:${themeFontFamily};`}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="e8639489520c639b" />
-    <title>{post.data.title}</title>
+    <title>{pageHeading}</title>
     <meta name="description" content={post.data.description} />
     <meta name="robots" content={siteConfig.robotsContent} />
     {post.data.templateVersion ? (
@@ -245,12 +392,24 @@ const blockOrder = [...blocks];
     <style>
       :root {
         color-scheme: light;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       }
       body {
         margin: 0;
         background: #f8fafc;
         color: #0f172a;
+      }
+      @media (max-width: 768px) {
+        body {
+          /* Prevent footer/content from being blocked by sticky call bar */
+          padding-bottom: calc(88px + env(safe-area-inset-bottom));
+        }
+      }
+      a {
+        color: var(--theme-accent, #1d4ed8);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
       }
       main {
         width: min(800px, 92vw);
@@ -264,26 +423,30 @@ const blockOrder = [...blocks];
         line-height: 1.2;
         margin-top: 0;
       }
-      .service-info {
+      .service-info,
+      [class$="--service-info"] {
         margin: 1.5rem 0 2rem;
         padding: 1.25rem 1.4rem;
         background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
         border: 1px solid #cbd5e1;
-        border-left: 6px solid #0f172a;
+        border-left: 6px solid var(--theme-accent, #1d4ed8);
         border-radius: 10px;
       }
-      .service-info h2 {
+      .service-info h2,
+      [class$="--service-info"] h2 {
         margin: 0 0 0.5rem;
         font-size: 1.25rem;
       }
-      .service-info p {
+      .service-info p,
+      [class$="--service-info"] p {
         margin: 0.25rem 0;
         color: #334155;
       }
       .service-meta {
         font-size: 0.95rem;
       }
-      .phone-btn {
+      .phone-btn,
+      [class$="--phone-btn"] {
         display: inline-block;
         margin-top: 0.8rem;
         background: #dc2626;
@@ -293,54 +456,112 @@ const blockOrder = [...blocks];
         text-decoration: none;
         font-weight: 700;
       }
-      .phone-btn:hover {
+      .phone-btn:hover,
+      [class$="--phone-btn"]:hover {
         background: #b91c1c;
       }
-      .faq {
+      .faq,
+      [class$="--faq"] {
         margin-top: 2rem;
         border-top: 1px solid #e2e8f0;
         padding-top: 1rem;
       }
-      .faq h2 {
+      .faq h2,
+      [class$="--faq"] h2 {
         margin: 0 0 0.75rem;
       }
-      .faq details {
+      .faq details,
+      [class$="--faq"] details {
         border: 1px solid #e2e8f0;
         border-radius: 8px;
         background: #f8fafc;
         margin-bottom: 0.6rem;
         padding: 0.6rem 0.8rem;
       }
-      .faq summary {
+      .faq summary,
+      [class$="--faq"] summary {
         cursor: pointer;
         font-weight: 600;
       }
-      .faq p {
+      .faq p,
+      [class$="--faq"] p {
         margin: 0.55rem 0 0.1rem;
         color: #334155;
       }
-      .geo-brief {
+      .geo-brief,
+      [class$="--geo-brief"] {
         margin-top: 1.75rem;
         border-top: 1px solid #e2e8f0;
         padding-top: 1rem;
       }
-      .geo-brief h2 {
+      .geo-brief h2,
+      [class$="--geo-brief"] h2 {
         margin: 0 0 0.5rem;
       }
-      .geo-brief p {
+      .geo-brief p,
+      [class$="--geo-brief"] p {
         margin: 0.4rem 0;
         color: #334155;
+      }
+      .mobile-sticky-call-wrap {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(15, 23, 42, 0.12);
+        backdrop-filter: blur(3px);
+      }
+      .mobile-sticky-call-btn {
+        display: block;
+        width: min(760px, calc(100vw - 24px));
+        margin: 0 auto;
+        text-align: center;
+        background: #dc3545;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1rem;
+        line-height: 1.2;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 22px rgba(220, 53, 69, 0.45);
+        animation: stickyPulse 1.8s ease-in-out infinite;
+      }
+      .mobile-sticky-call-btn:hover {
+        background: #dc3545;
+        text-decoration: none;
+      }
+      @keyframes stickyPulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 8px 22px rgba(220, 53, 69, 0.45);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 0 10px 28px rgba(220, 53, 69, 0.62);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 8px 22px rgba(220, 53, 69, 0.45);
+        }
+      }
+      @media (min-width: 769px) {
+        .mobile-sticky-call-wrap {
+          display: none;
+        }
       }
     </style>
     <!-- Markdown 由 <Content /> 注入，子节点无本页 scoped 属性；用 is:global + 固定 id，避免 dev/HMR 下偶发“正文像空白”（与 build 静态 HTML 一致） -->
     <style is:global>
-      #article-md-body {
+      [id$="article-md-body"] {
         max-width: 100%;
         overflow-wrap: anywhere;
         word-break: break-word;
       }
       /* Engineering Notice: always first paragraph emitted by generator */
-      #article-md-body p:first-child {
+      [id$="article-md-body"] p:first-child {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
           monospace;
         font-size: 0.92rem;
@@ -352,17 +573,17 @@ const blockOrder = [...blocks];
         padding: 0.75rem 0.9rem;
         margin: 0 0 1rem;
       }
-      #article-md-body p:first-child strong {
+      [id$="article-md-body"] p:first-child strong {
         color: #f8fafc;
         font-weight: 700;
       }
-      #article-md-body p {
+      [id$="article-md-body"] p {
         display: block;
         margin: 0.65rem 0;
         color: #334155;
         line-height: 1.55;
       }
-      #article-md-body strong {
+      [id$="article-md-body"] strong {
         color: #0f172a;
       }
     </style>
@@ -370,15 +591,15 @@ const blockOrder = [...blocks];
   <body>
     <main>
       <article>
-        <h1>{post.data.title}</h1>
+        <h1>{pageHeading}</h1>
         <p style="margin: 0.25rem 0 0; color: #475569; font-size: 0.98rem;">
           {headerVariant}
         </p>
-        <div class="service-info">
+        <div class={serviceInfoClass}>
           <h2>{ctaVariant.title}</h2>
           <p>{serviceLine}</p>
           <p class="service-meta">{ctaVariant.meta}</p>
-          <a class="phone-btn" href={telHref}>
+          <a class={phoneBtnClass} href={telHref}>
             {callBtnLabel}
           </a>
         </div>
@@ -386,28 +607,28 @@ const blockOrder = [...blocks];
           blockOrder.map((k) => {
             if (k === "content") {
               return (
-                <div id="article-md-body" class="article-content">
+                <div id={articleBodyId} class={articleBodyClass}>
                   <Content />
                 </div>
               );
             }
             if (k === "geo") {
               return geoBriefText ? (
-                <section class="geo-brief" aria-labelledby="geo-brief-title">
-                  <h2 id="geo-brief-title">Regional Infrastructure Brief</h2>
+                <section class={geoBriefClass} aria-labelledby={geoBriefTitleId}>
+                  <h2 id={geoBriefTitleId}>{geoTitle}</h2>
                   <p>{geoBriefText}</p>
                   {localPathsText ? <p>{localPathsText}</p> : null}
                   {geo.elevationFt ? (
                     <p>
-                      Elevation context: {geo.elevationFt} ft (reference band).
+                      {elevationLabel}: {geo.elevationFt} ft (reference band).
                     </p>
                   ) : null}
                   {geo.zipCodes?.length ? (
                     <div>
-                      <p style="margin-bottom: 0.25rem;">ZIP coverage snapshot (sampled):</p>
+                      <p style="margin-bottom: 0.25rem;">{zipSnapshotLabel}</p>
                       <details>
                         <summary style="cursor: pointer; font-weight: 600;">
-                          View ZIP list ({geo.zipCodes.slice(0, 12).length})
+                          {zipViewLabel} ({geo.zipCodes.slice(0, 12).length})
                         </summary>
                         <ul style="margin: 0.55rem 0 0; padding-left: 1.25rem;">
                           {geo.zipCodes.slice(0, 12).map((z) => (
@@ -419,10 +640,10 @@ const blockOrder = [...blocks];
                   ) : null}
                   {geo.localPaths?.length ? (
                     <div style="margin-top: 0.65rem;">
-                      <p style="margin-bottom: 0.25rem;">Transit markers:</p>
+                      <p style="margin-bottom: 0.25rem;">{transitLabel}</p>
                       <details>
                         <summary style="cursor: pointer; font-weight: 600;">
-                          View transit markers ({geo.localPaths.slice(0, 5).length})
+                          {transitViewLabel} ({geo.localPaths.slice(0, 5).length})
                         </summary>
                         <ul style="margin: 0.55rem 0 0; padding-left: 1.25rem;">
                           {geo.localPaths.slice(0, 5).map((p) => (
@@ -436,9 +657,9 @@ const blockOrder = [...blocks];
               ) : null;
             }
             if (k === "faq") {
-              return (
-                <section class="faq" aria-labelledby="faq-title">
-                  <h2 id="faq-title">{faqTitle}</h2>
+              return showFaq ? (
+                <section class={faqClass} aria-labelledby={faqTitleId}>
+                  <h2 id={faqTitleId}>{faqTitle}</h2>
                   {pageFaqItemsFinal.map((item) => (
                     <details>
                       <summary>{item.question}</summary>
@@ -446,9 +667,17 @@ const blockOrder = [...blocks];
                     </details>
                   ))}
                 </section>
-              );
+              ) : null;
             }
-            return <RelatedCities currentSlug={entrySlug} state={stateCodeFromSlug} />;
+            return showRelated ? (
+              <RelatedCities
+                currentSlug={entrySlug}
+                state={stateCodeFromSlug}
+                domPrefix={domPrefix}
+                themeAccent={themeAccent}
+                titleText={relatedTitle}
+              />
+            ) : null;
           })
         }
       </article>
@@ -458,5 +687,12 @@ const blockOrder = [...blocks];
       notice={stateNotice}
       variantSeed={`${ACTIVE_COLLECTION}|${entrySlug}|footer`}
     />
+    {enableMobileStickyCall ? (
+      <div class="mobile-sticky-call-wrap">
+        <a class="mobile-sticky-call-btn" href={telHref} aria-label={`Call ${siteConfig.phoneDisplay}`}>
+          Call now: {siteConfig.phoneDisplay}
+        </a>
+      </div>
+    ) : null}
   </body>
 </html>

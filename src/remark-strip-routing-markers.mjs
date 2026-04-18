@@ -20,10 +20,40 @@ function strip(node) {
   if (!node?.children) return;
   node.children = node.children.filter((child) => {
     if (child.type === "paragraph") {
-      const t = paragraphText(child);
+      normalizeTextNodes(child);
+      const t = paragraphText(child).trim();
       if (/^\s*Internal routing markers:/i.test(t)) return false;
+      if (!t) return false;
     }
     strip(child);
     return true;
   });
+}
+
+function normalizeTextNodes(node) {
+  if (!node) return;
+  if (node.type === "text" && typeof node.value === "string") {
+    node.value = normalizeSentence(node.value);
+    return;
+  }
+  if (!Array.isArray(node.children)) return;
+  for (const child of node.children) {
+    normalizeTextNodes(child);
+  }
+}
+
+function normalizeSentence(input) {
+  return (
+    input
+      // collapse whitespace/newlines in generated prose
+      .replace(/\s+/g, " ")
+      // remove obvious repeated punctuation artifacts
+      .replace(/([,.;:!?])\1+/g, "$1")
+      // normalize dangling separator noise around slashes
+      .replace(/\s*\/\s*/g, "/")
+      // tighten punctuation spacing
+      .replace(/\s+([,.;:!?])/g, "$1")
+      .replace(/([,.;:!?])([A-Za-z])/g, "$1 $2")
+      .trim()
+  );
 }

@@ -5,6 +5,9 @@ const FILE_PREFIX: Record<ActiveCollectionKey, string> = {
   roofing: "roofing-",
   plumbing: "plumbing-",
   pestcontrol: "pest-control-",
+  "water-damage": "water-damage-",
+  "siding-services": "siding-services-",
+  "plumbing-v2": "plumbing-v2-",
 };
 
 export type ParsedLocation = {

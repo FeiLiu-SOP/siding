@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# absent-apogee（Astro 站点）
 
-```sh
-npm create astro@latest -- --template minimal
+本目录为 **单垂直构建** 的 Astro 6 项目：通过环境变量 `ACTIVE_COLLECTION` 指向 `src/content/<collection>/` 下已生成的 Markdown（由仓库根目录 Go 生成器写入）。
+
+父仓库说明与命令总览见 **[../README.md](../README.md)**；流水线与扩展清单见 **[../docs/CONTENT_PIPELINE.md](../docs/CONTENT_PIPELINE.md)**。
+
+## 环境变量
+
+| 变量 | 说明 |
+|------|------|
+| `ACTIVE_COLLECTION` | 构建时集合名，须为 `active-collection.ts` 中 `ALLOWED` 之一（如 `siding-services`、`water-damage`）。 |
+| `PUBLIC_*` | 见 `src/site-config.ts`：站点 URL、电话、垂直展示名等（Cloudflare Pages 上常用 Build 变量配置）。 |
+
+未设置 `ACTIVE_COLLECTION` 时，本地行为以 `active-collection.ts` 内默认逻辑为准（当前默认集合为 `roofing`）。
+
+## 命令（在 `absent-apogee/` 下执行）
+
+```powershell
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+按垂直开发（示例）：
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```powershell
+npm run dev:siding-services
+npm run dev:water-damage
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+按垂直生产构建（输出 `./dist/`）：
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```powershell
+npm run build:siding-services
+npm run build:water-damage
+npm run build:roofing
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+构建完成后，可在本目录运行（脚本会 `cd ..` 到仓库根再执行 Go）：
 
-## 🧞 Commands
+```powershell
+npm run diversity:soft
+```
 
-All commands are run from the root of the project, from a terminal:
+对 `dist` 下 HTML 抽样计算平均 Jaccard；`-no-fail` 表示超默认 30% 告警阈值仍返回退出码 0。
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 内容与路由
 
-## 👀 Want to learn more?
+- 城市页路由由 `[...slug].astro` 与 content collection slug 驱动；slug 格式与 Go 输出文件名（去扩展名）一致，例如 `siding-services-{city}-{state}-{zip}`。
+- FAQ、Schema、RelatedCities 等逻辑见 `src/lib/seo.ts`、`src/components/RelatedCities.astro`。
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 官方 Astro 文档
+
+- [Astro 文档](https://docs.astro.build)
+- 若需 CLI 帮助：`npm run astro -- --help`

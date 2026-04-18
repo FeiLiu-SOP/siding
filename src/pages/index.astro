@@ -2,15 +2,17 @@
 import { getCollection } from "astro:content";
 import Footer from "../components/Footer.astro";
 import { ACTIVE_COLLECTION } from "../active-collection";
-import { canonicalPageUrl, internalPath, siteConfig } from "../site-config";
+import { canonicalPageUrl, getNicheLabelForSeed, internalPath, siteConfig } from "../site-config";
+import { REALTORS_AT_THE_BEACH_PLUMBING_V2 } from "../domain-templates/realtorsatthebeach.com-plumbing-v2";
 
 const posts = await getCollection(ACTIVE_COLLECTION);
-const nicheLower = siteConfig.nicheLabel.toLowerCase();
+const pageNicheLabel = getNicheLabelForSeed("home");
+const nicheLower = pageNicheLabel.toLowerCase();
 const pageUrl = canonicalPageUrl();
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: `${siteConfig.nicheLabel} Service Pages`,
+  name: `${pageNicheLabel} Service Pages`,
   description: `Browse all local ${nicheLower} service pages.`,
   url: pageUrl,
 };
@@ -36,14 +38,17 @@ for (const p of posts) {
 const statesSorted = Array.from(stateCounts.entries())
   .sort((a, b) => a[0].localeCompare(b[0]))
   .map(([st, count]) => ({ st, count, href: internalPath(st.toLowerCase()) }));
+const themeAccent = ACTIVE_COLLECTION === "plumbing-v2"
+  ? REALTORS_AT_THE_BEACH_PLUMBING_V2.theme.accent
+  : "#1d4ed8";
 ---
 
-<html lang="en">
+<html lang="en" style={`--theme-accent:${themeAccent};`}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="e8639489520c639b" />
-    <title>{siteConfig.nicheLabel} Service Pages</title>
+    <title>{pageNicheLabel} Service Pages</title>
     <meta
       name="description"
       content={`Browse all local ${nicheLower} service pages.`}
@@ -86,7 +91,7 @@ const statesSorted = Array.from(stateCounts.entries())
         margin: 0.2rem 0;
       }
       a {
-        color: #1d4ed8;
+        color: var(--theme-accent, #1d4ed8);
         text-decoration: none;
       }
       a:hover {
@@ -101,7 +106,7 @@ const statesSorted = Array.from(stateCounts.entries())
   </head>
   <body>
     <main>
-      <h1>All {siteConfig.nicheLabel} Pages</h1>
+      <h1>All {pageNicheLabel} Pages</h1>
       <p class="meta">Total pages: {sortedPosts.length}</p>
 
       <h2>Browse by state</h2>
@@ -109,7 +114,7 @@ const statesSorted = Array.from(stateCounts.entries())
       <ul>
         {statesSorted.map((s) => (
           <li>
-            <a href={s.href}>{siteConfig.nicheLabel} in {s.st}</a> ({s.count})
+            <a href={s.href}>{pageNicheLabel} in {s.st}</a> ({s.count})
           </li>
         ))}
       </ul>
