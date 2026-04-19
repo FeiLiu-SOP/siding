@@ -27,7 +27,7 @@ function readRaw(): string {
     return fromMeta.trim().toLowerCase();
   }
 
-  return "roofing";
+  return "siding-services";
 }
 
 const normalized = readRaw();
