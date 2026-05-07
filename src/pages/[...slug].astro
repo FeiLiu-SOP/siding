@@ -5,7 +5,13 @@ import RelatedCities from "../components/RelatedCities.astro";
 import ValueProtectionCalculator from "../components/ValueProtectionCalculator.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { ACTIVE_COLLECTION } from "../active-collection";
-import { canonicalPageUrl, getNicheLabelForSeed, internalPath, siteConfig } from "../site-config";
+import {
+  PUBLIC_NICHE_LABEL,
+  canonicalPageUrl,
+  getNicheLabelForSeed,
+  internalPath,
+  siteConfig,
+} from "../site-config";
 import {
   REALTORS_AT_THE_BEACH_WATER_DAMAGE,
   matchesRealtorsAtTheBeachWaterDamage,
@@ -13,6 +19,8 @@ import {
 import {
   REALTORS_AT_THE_BEACH_PLUMBING_V2,
 } from "../domain-templates/realtorsatthebeach.com-plumbing-v2";
+import { buildBreadcrumbListSchema, buildSlugPageBreadcrumbItems } from "../lib/breadcrumb-schema";
+import { getStatePhysicalEnvironmentFact } from "../lib/geo-facts";
 import {
   buildFaqSchema,
   buildLocalBusinessSchema,
@@ -374,35 +382,22 @@ const geo = {
   zipCodes: Array.isArray(post.data.zipCodes) ? post.data.zipCodes : undefined,
   localPaths: Array.isArray(post.data.localPaths) ? post.data.localPaths : undefined,
 };
-const geoBriefText =
+const stateGeoFact = getStatePhysicalEnvironmentFact(stateCodeFromSlug);
+const geoCoordsLine =
   geo.county && typeof geo.lat === "number" && typeof geo.lng === "number"
-    ? [
-        `Regional Infrastructure Brief: County ${geo.county}. Coordinates: ${geo.lat.toFixed(4)}, ${geo.lng.toFixed(
-          4,
-        )}. ZIP sample: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`,
-        `Regional Infrastructure Brief: Serving ${geo.county}. Coordinate anchor: ${geo.lat.toFixed(
-          4,
-        )}, ${geo.lng.toFixed(4)}. ZIP sectors: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`,
-        `Regional Infrastructure Brief: ${geo.county} coverage node. Coordinates ${geo.lat.toFixed(
-          4,
-        )}, ${geo.lng.toFixed(4)}. Sample ZIPs: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`,
-        `Regional Infrastructure Brief: County grid ${geo.county}. Lat/Lng: ${geo.lat.toFixed(4)}, ${geo.lng.toFixed(
-          4,
-        )}. ZIP sample set: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`,
-        `Regional Infrastructure Brief: ${geo.county} dispatch context. Coordinates ${geo.lat.toFixed(
-          4,
-        )}, ${geo.lng.toFixed(4)}. ZIP sample: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`,
-      ][stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|geoBrief`) % 5]
+    ? `Regional infrastructure brief: ${geo.county}. Coordinates ${geo.lat.toFixed(4)}, ${geo.lng.toFixed(4)}.${
+        (geo.zipSample ?? []).filter(Boolean).length
+          ? ` Sample ZIP codes: ${(geo.zipSample ?? []).slice(0, 5).join(", ")}.`
+          : ""
+      }`
     : null;
+const geoPhysicalEnvLine = stateCodeFromSlug
+  ? `Physical environment context (${stateGeoFact.label}): ${stateGeoFact.narrative}`
+  : null;
+const showGeoSection = Boolean(geoCoordsLine || geoPhysicalEnvLine);
 const localPathsText =
   geo.localPaths && geo.localPaths.length
-    ? [
-        `Logistics optimization for ${geo.localPaths.slice(0, 5).join(", ")} transit sectors.`,
-        `Routing optimization focuses on ${geo.localPaths.slice(0, 5).join(", ")} corridors.`,
-        `Dispatch routing notes reference ${geo.localPaths.slice(0, 5).join(", ")} sectors.`,
-        `Transit optimization markers: ${geo.localPaths.slice(0, 5).join(", ")}.`,
-        `Coverage routing hints: ${geo.localPaths.slice(0, 5).join(", ")}.`,
-      ][stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|pathsLine`) % 5]
+    ? `Regional access notes: ${geo.localPaths.slice(0, 5).join(", ")}.`
     : null;
 
 function addendumForFaq(seedText: string) {
@@ -474,6 +469,16 @@ const localBusinessSchema = buildLocalBusinessSchema({
 });
 const faqSchema = buildFaqSchema(pageFaqItemsFinal);
 
+const breadcrumbListSchema = buildBreadcrumbListSchema(
+  buildSlugPageBreadcrumbItems({
+    canonicalPageUrl,
+    serviceHubLabel: PUBLIC_NICHE_LABEL,
+    stateCode: stateCodeFromSlug,
+    cityDisplayName: pageCity,
+    entrySlug,
+  }),
+);
+
 // Action 3: stable DOM section randomizer for 4 blocks (content / geo / faq / related)
 const blocks = ["content", "geo", "faq", "related"] as const;
 const visibleBlocks = blocks.filter((k) => {
@@ -518,6 +523,7 @@ const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
       <meta name="template-version" content={post.data.templateVersion} />
     ) : null}
     <link rel="canonical" href={pageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbListSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <style>
@@ -839,10 +845,11 @@ const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
               );
             }
             if (k === "geo") {
-              return geoBriefText ? (
+              return showGeoSection ? (
                 <section class={geoBriefClass} aria-labelledby={geoBriefTitleId}>
                   <h2 id={geoBriefTitleId}>{geoTitle}</h2>
-                  <p>{geoBriefText}</p>
+                  {geoCoordsLine ? <p>{geoCoordsLine}</p> : null}
+                  {geoPhysicalEnvLine ? <p>{geoPhysicalEnvLine}</p> : null}
                   {localPathsText ? <p>{localPathsText}</p> : null}
                   {geo.elevationFt ? (
                     <p>
