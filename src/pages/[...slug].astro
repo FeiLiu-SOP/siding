@@ -128,28 +128,28 @@ function stateLabelForBait(stateCode: string, stateFromFm: string | undefined): 
   return stateCode;
 }
 
-const SIDING_TITLE_BRAND_SUFFIX = " | Coastal Property Defense Network";
+const SIDING_TITLE_BRAND_SUFFIX = " | National Home Protection Network";
 function withSidingTitleBrand(raw: string): string {
   const t = raw.trim();
-  if (t.endsWith("Coastal Property Defense Network")) return t;
+  if (t.endsWith("National Home Protection Network")) return t;
   return `${t}${SIDING_TITLE_BRAND_SUFFIX}`;
 }
 
-/** Realtors beach/siding: salt-air, wind, compliance + Coastal brand on `<title>` (pick 0 needs zLabel). */
+/** National siding: energy / cost / USGS audit + brand on `<title>` (pick 0 needs zLabel). */
 function buildBaitPool2Titles(opts: { city: string; zLabel: string | null; pick: number }): {
   pageTitle: string;
   pageH1: string;
 } {
   const { city, zLabel, pick } = opts;
   if (pick === 0 && zLabel) {
-    const core = `Salt-Resistant ${city} Siding Audit: Protect Your ${zLabel} Beach Asset`;
+    const core = `Energy-Efficient ${city} Siding: Lower Utility Bills & Boost ${zLabel} Home Value`;
     return { pageTitle: withSidingTitleBrand(core), pageH1: core };
   }
   if (pick === 1) {
-    const core = `${city} Siding Replacement: High-Wind Certified | Coastal Property Defense`;
+    const core = `${city} Siding Cost Guide: Get Free Quotes & Avoid Contractor Overcharge`;
     return { pageTitle: withSidingTitleBrand(core), pageH1: core };
   }
-  const core = `2026 ${city} Exterior Audit: Boost Home Value & Energy Efficiency`;
+  const core = `Verified ${city} Siding Installation: 2026 USGS-Driven Storm Risk Audit`;
   return { pageTitle: withSidingTitleBrand(core), pageH1: core };
 }
 const zRaw = post.data.zillowHomeValueUsd;
@@ -182,21 +182,17 @@ const isFinancialPressureMode =
   zLabelExact != null &&
   pageCity != null;
 
-const sidingH1Lead = `Coastal Verified Siding Pros — Salt-Air Protection — `;
+const sidingH1Lead = pageCity
+  ? `Verified ${pageCity} Siding Pros — Energy-Saving Assessment — `
+  : `Verified Siding Pros — Energy-Saving Assessment — `;
 
-const elevFtSiding =
-  typeof post.data.elevationFt === "number" && Number.isFinite(post.data.elevationFt)
-    ? Math.round(post.data.elevationFt)
-    : null;
 const sidingVisualLine = pageCity
-  ? elevFtSiding != null
-    ? `NOTICE: Your ${pageCity} home's elevation at ${elevFtSiding}ft faces extreme salt-air erosion. Our USGS audit ensures your siding meets 2026 Coastal Integrity Standards.`
-    : `NOTICE: Your ${pageCity} home faces extreme salt-air erosion at coastal elevations. Our USGS audit ensures your siding meets 2026 Coastal Integrity Standards.`
-  : null;
+  ? `Our ${pageCity} node cross-references USGS terrain data to recommend siding materials that prevent moisture-driven asset loss and improve energy R-Value.`
+  : `Our dispatch node cross-references USGS terrain data to recommend siding materials that prevent moisture-driven asset loss and improve energy R-Value.`;
 
 /** `<title>` / JSON-LD name */
 const pageTitle = isFinancialPressureMode
-  ? withSidingTitleBrand(`EXCLUSIVE: ${zLabelExact} ${pageCity} Waterfront Siding Audit | 2026 Integrity Map`)
+  ? withSidingTitleBrand(`URGENT: ${zLabelExact} ${pageCity} Asset Integrity Alert | 2026 Siding Risk Map`)
   : baitHead?.pageTitle ?? withSidingTitleBrand(post.data.title);
 
 /** Visible `<h1>` fallback */
@@ -209,19 +205,24 @@ const pageH1Plain =
         ? `${sidingH1Lead}${pageCity} Emergency Dispatch - Protecting your property`
         : `${sidingH1Lead}${post.data.title}`;
 
+const PINTEREST_META_CTA = `Search "National Home Protection Audit" on Google.`;
+
 function sidingMetaLead(): string {
+  if (pageCity && zLabelExact) {
+    return `Upgrade your ${pageCity} home with energy-efficient siding. Get a verified cost guide and avoid common contractor scams. Protect your ${zLabelExact} property value.`;
+  }
   if (pageCity) {
-    return `Protect your beachfront investment. We provide specialized coastal siding audits for ${pageCity} residents to prevent salt-driven decay and boost Zillow home values.`;
+    return `Upgrade your ${pageCity} home with energy-efficient siding. Get a verified cost guide and avoid common contractor scams. Protect your property value.`;
   }
   if (stateCodeFromSlug) {
-    return `Protect your beachfront investment. We provide specialized coastal siding audits for ${stateCodeFromSlug} residents to prevent salt-driven decay and boost Zillow home values.`;
+    return `Upgrade your ${stateCodeFromSlug} area home with energy-efficient siding. Get a verified cost guide and avoid common contractor scams. Protect your property value.`;
   }
-  return `Protect your beachfront investment. We provide specialized coastal siding audits to prevent salt-driven decay and boost Zillow home values.`;
+  return `Upgrade your home with energy-efficient siding. Get a verified cost guide and avoid common contractor scams. Protect your property value.`;
 }
 
 const pageMetaDescriptionDefault = clipMetaDescription(
   (() => {
-    const lead = `${sidingMetaLead()} `;
+    const lead = `${sidingMetaLead()} ${PINTEREST_META_CTA} `;
     const base = post.data.description;
     const tail = (() => {
       if (zLabelExact && !base.includes(zLabelExact)) {
@@ -237,7 +238,7 @@ const pageMetaDescriptionDefault = clipMetaDescription(
 );
 const pageMetaDescription = isFinancialPressureMode
   ? clipMetaDescription(
-      `${sidingMetaLead()} Waterfront benchmark: ${zLabelExact}. Coastal integrity map coordination and documented intake.`,
+      `${sidingMetaLead()} ${PINTEREST_META_CTA} Benchmark: ${zLabelExact}. Siding risk map coordination and documented intake.`,
     )
   : pageMetaDescriptionDefault;
 function pickFaqSubset<T>(items: T[], seedText: string, count: number): T[] {
