@@ -6,6 +6,7 @@ import ValueProtectionCalculator from "../components/ValueProtectionCalculator.a
 import OfficialRiskNodeHeader from "../components/OfficialRiskNodeHeader.astro";
 import TrustBar from "../components/TrustBar.astro";
 import NationalDispatchDisclaimer from "../components/NationalDispatchDisclaimer.astro";
+import NichePartnerLogos from "../components/NichePartnerLogos.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { ACTIVE_COLLECTION } from "../active-collection";
 import {
@@ -838,6 +839,7 @@ const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
           domPrefix={domPrefix}
           visualizedAssessmentLine={sidingVisualLine}
         />
+        <NichePartnerLogos />
         {pestInsuranceEquityNote ? <p class="pest-equity-insurance-note">{pestInsuranceEquityNote}</p> : null}
         <section class="hero-flood-alert-band" aria-label="Service area headline">
           <Breadcrumbs
