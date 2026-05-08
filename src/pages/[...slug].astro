@@ -27,6 +27,9 @@ import {
   getFaqByCollection,
 } from "../lib/seo";
 
+/** High-value tier: deterministic `<title>` when home value clears bar. */
+const HIGH_VALUE_USD_TRIGGER = 300_000;
+
 export async function getStaticPaths() {
   const posts = await getCollection(ACTIVE_COLLECTION);
   return posts.map((post) => ({
@@ -124,29 +127,30 @@ function stateLabelForBait(stateCode: string, stateFromFm: string | undefined): 
   if (fm.length > 2) return fm;
   return stateCode;
 }
-function buildBaitPool2Titles(opts: {
-  service: string;
-  city: string;
-  stateCode: string;
-  stateFm: string | undefined;
-  zLabel: string | null;
-  pick: number;
-}): { pageTitle: string; pageH1: string } {
-  const stateToken = stateLabelForBait(opts.stateCode, opts.stateFm);
-  const { service, city, zLabel, pick } = opts;
+
+const SIDING_TITLE_BRAND_SUFFIX = " | Coastal Property Defense Network";
+function withSidingTitleBrand(raw: string): string {
+  const t = raw.trim();
+  if (t.endsWith("Coastal Property Defense Network")) return t;
+  return `${t}${SIDING_TITLE_BRAND_SUFFIX}`;
+}
+
+/** Realtors beach/siding: salt-air, wind, compliance + Coastal brand on `<title>` (pick 0 needs zLabel). */
+function buildBaitPool2Titles(opts: { city: string; zLabel: string | null; pick: number }): {
+  pageTitle: string;
+  pageH1: string;
+} {
+  const { city, zLabel, pick } = opts;
   if (pick === 0 && zLabel) {
-    const pageTitle = `${zLabel} Home Protection: ${city} Emergency ${service} (Verified)`;
-    const pageH1 = `${zLabel} Home Protection — ${city} Emergency ${service}`;
-    return { pageTitle, pageH1 };
+    const core = `Salt-Resistant ${city} Siding Audit: Protect Your ${zLabel} Beach Asset`;
+    return { pageTitle: withSidingTitleBrand(core), pageH1: core };
   }
   if (pick === 1) {
-    const pageTitle = `${city} ${service} Dispatch - 24/7 Rapid Response in ${stateToken}`;
-    const pageH1 = `${city} ${service} Dispatch: 24/7 Rapid Response (${stateToken})`;
-    return { pageTitle, pageH1 };
+    const core = `${city} Siding Replacement: High-Wind Certified | Coastal Property Defense`;
+    return { pageTitle: withSidingTitleBrand(core), pageH1: core };
   }
-  const pageTitle = `Warning: Asset Decay in ${city}. Local ${service} Experts Ready.`;
-  const pageH1 = `Warning: Asset Decay in ${city} — Local ${service} Experts Ready`;
-  return { pageTitle, pageH1 };
+  const core = `2026 ${city} Exterior Audit: Boost Home Value & Energy Efficiency`;
+  return { pageTitle: withSidingTitleBrand(core), pageH1: core };
 }
 const zRaw = post.data.zillowHomeValueUsd;
 const zUsd =
@@ -162,42 +166,80 @@ const zLabelExact =
     : null;
 let baitPick = stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|bait2`) % 3;
 if (baitPick === 0 && !zLabel) {
-  baitPick = 1 + (stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|bait2NoZ`) % 2);
+  baitPick = 1 + (stableHash(`${ACTIVE_COLLECTION}|${entrySlug}|bait2NoZSiding`) % 2);
 }
 const baitHead =
   pageCity && stateCodeFromSlug
     ? buildBaitPool2Titles({
-        service: pageNicheLabel,
         city: pageCity,
-        stateCode: stateCodeFromSlug,
-        stateFm: post.data.state,
         zLabel,
         pick: baitPick,
       })
     : null;
-/** `<title>` / JSON-LD name: 3-template hash only (fingerprint cover). */
-const pageTitle = baitHead?.pageTitle ?? post.data.title;
-/** Visible `<h1>` / meta: full USD string matches `zillowHomeValueUsd` (same digits as H1 span). */
+const isFinancialPressureMode =
+  zUsd != null &&
+  zUsd >= HIGH_VALUE_USD_TRIGGER &&
+  zLabelExact != null &&
+  pageCity != null;
+
+const sidingH1Lead = `Coastal Verified Siding Pros — Salt-Air Protection — `;
+
+const elevFtSiding =
+  typeof post.data.elevationFt === "number" && Number.isFinite(post.data.elevationFt)
+    ? Math.round(post.data.elevationFt)
+    : null;
+const sidingVisualLine = pageCity
+  ? elevFtSiding != null
+    ? `NOTICE: Your ${pageCity} home's elevation at ${elevFtSiding}ft faces extreme salt-air erosion. Our USGS audit ensures your siding meets 2026 Coastal Integrity Standards.`
+    : `NOTICE: Your ${pageCity} home faces extreme salt-air erosion at coastal elevations. Our USGS audit ensures your siding meets 2026 Coastal Integrity Standards.`
+  : null;
+
+/** `<title>` / JSON-LD name */
+const pageTitle = isFinancialPressureMode
+  ? withSidingTitleBrand(`EXCLUSIVE: ${zLabelExact} ${pageCity} Waterfront Siding Audit | 2026 Integrity Map`)
+  : baitHead?.pageTitle ?? withSidingTitleBrand(post.data.title);
+
+/** Visible `<h1>` fallback */
 const pageH1Plain =
   zLabelExact && pageCity
-    ? `${pageCity} Emergency Dispatch - Protecting your ${zLabelExact} Asset`
+    ? `${sidingH1Lead}${pageCity} Emergency Dispatch - Protecting your ${zLabelExact} Asset`
     : zLabelExact
-      ? `Emergency Dispatch - Protecting your ${zLabelExact} Asset`
+      ? `${sidingH1Lead}Emergency Dispatch - Protecting your ${zLabelExact} Asset`
       : pageCity
-        ? `${pageCity} Emergency Dispatch - Protecting your property`
-        : post.data.title;
-const pageMetaDescription = clipMetaDescription(
+        ? `${sidingH1Lead}${pageCity} Emergency Dispatch - Protecting your property`
+        : `${sidingH1Lead}${post.data.title}`;
+
+function sidingMetaLead(): string {
+  if (pageCity) {
+    return `Protect your beachfront investment. We provide specialized coastal siding audits for ${pageCity} residents to prevent salt-driven decay and boost Zillow home values.`;
+  }
+  if (stateCodeFromSlug) {
+    return `Protect your beachfront investment. We provide specialized coastal siding audits for ${stateCodeFromSlug} residents to prevent salt-driven decay and boost Zillow home values.`;
+  }
+  return `Protect your beachfront investment. We provide specialized coastal siding audits to prevent salt-driven decay and boost Zillow home values.`;
+}
+
+const pageMetaDescriptionDefault = clipMetaDescription(
   (() => {
+    const lead = `${sidingMetaLead()} `;
     const base = post.data.description;
-    if (zLabelExact && !base.includes(zLabelExact)) {
-      if (pageCity && stateCodeFromSlug) {
-        return `${base} Benchmark median home value near ${zLabelExact} (${pageCity} ${stateCodeFromSlug} market context).`;
+    const tail = (() => {
+      if (zLabelExact && !base.includes(zLabelExact)) {
+        if (pageCity && stateCodeFromSlug) {
+          return `${base} Benchmark median home value near ${zLabelExact} (${pageCity} ${stateCodeFromSlug} market context).`;
+        }
+        return `${base} Benchmark median home value near ${zLabelExact}.`;
       }
-      return `${base} Benchmark median home value near ${zLabelExact}.`;
-    }
-    return base;
+      return base;
+    })();
+    return `${lead}${tail}`;
   })(),
 );
+const pageMetaDescription = isFinancialPressureMode
+  ? clipMetaDescription(
+      `${sidingMetaLead()} Waterfront benchmark: ${zLabelExact}. Coastal integrity map coordination and documented intake.`,
+    )
+  : pageMetaDescriptionDefault;
 function pickFaqSubset<T>(items: T[], seedText: string, count: number): T[] {
   const copy = [...items];
   let seed = stableHash(seedText);
@@ -789,6 +831,7 @@ const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
           city={pageCity}
           accent={themeAccent}
           domPrefix={domPrefix}
+          visualizedAssessmentLine={sidingVisualLine}
         />
         {pestInsuranceEquityNote ? <p class="pest-equity-insurance-note">{pestInsuranceEquityNote}</p> : null}
         <section class="hero-flood-alert-band" aria-label="Service area headline">
@@ -803,12 +846,14 @@ const blockOrder = ACTIVE_COLLECTION === "plumbing-v2"
               zLabelExact ? (
                 pageCity ? (
                   <>
+                    {sidingH1Lead}
                     {`${pageCity} Emergency Dispatch - Protecting your `}
                     <span class="h1-zmoney">{zLabelExact}</span>
                     {" Asset"}
                   </>
                 ) : (
                   <>
+                    {sidingH1Lead}
                     {"Emergency Dispatch - Protecting your "}
                     <span class="h1-zmoney">{zLabelExact}</span>
                     {" Asset"}
