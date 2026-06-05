@@ -12,6 +12,8 @@ lng: -109.0600
 zipSample: ["86515"]
 zipCodes: ["86515"]
 localPaths: ["Apache County / elevation 6759 ft band", "Apache County / primary ZIP 86515", "Apache County / ZIP 86515 sector", "Apache County / coords 35.6700, -109.0600"]
+zillowHomeValueUsd: 425018
+data_fidelity: "synthetic"
 ---
 
 **Engineering Notice for Window Rock:** Structural integrity verification: Weather Barrier Wrap calibrated for 110 mph localized wind load factor. Regional dispatch grid: Apache County.
