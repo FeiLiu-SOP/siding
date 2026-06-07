@@ -12,7 +12,7 @@ lng: -100.8200
 zipSample: ["57570"]
 zipCodes: ["57570"]
 localPaths: ["Todd County / elevation 2838 ft band", "Todd County / primary ZIP 57570", "Todd County / coords 43.2400, -100.8200", "Todd County / ZIP 57570 sector"]
-zillowHomeValueUsd: 314241
+zillowHomeValueUsd: 313744
 data_fidelity: "synthetic"
 ---
 

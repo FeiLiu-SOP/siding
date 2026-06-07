@@ -12,7 +12,7 @@ lng: -148.7200
 zipSample: ["99734", "99519"]
 zipCodes: ["99734", "99519"]
 localPaths: ["North Slope County / ZIP 99519 sector", "North Slope County / coords 70.3100, -148.7200", "North Slope County / ZIP 99734 sector", "North Slope County / primary ZIP 99519", "North Slope County / elevation 0 ft band"]
-zillowHomeValueUsd: 353763
+zillowHomeValueUsd: 357298
 data_fidelity: "synthetic"
 ---
 

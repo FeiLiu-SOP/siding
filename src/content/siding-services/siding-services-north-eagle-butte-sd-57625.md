@@ -12,7 +12,7 @@ lng: -101.2400
 zipSample: ["57625"]
 zipCodes: ["57625"]
 localPaths: ["Dewey County / primary ZIP 57625", "Dewey County / elevation 2382 ft band", "Dewey County / ZIP 57625 sector", "Dewey County / coords 45.0200, -101.2400"]
-zillowHomeValueUsd: 312187
+zillowHomeValueUsd: 303048
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -85.1600
 zipSample: ["32445"]
 zipCodes: ["32445"]
 localPaths: ["Jackson County / coords 30.9600, -85.1600", "Jackson County / ZIP 32445 sector", "Jackson County / elevation 161 ft band", "Jackson County / primary ZIP 32445"]
-zillowHomeValueUsd: 132985
+zillowHomeValueUsd: 133009
 ---
 
 **Engineering Notice for Malone:** Site context locked to Jackson County. Facade Renewal integrity verification recorded.

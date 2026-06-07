@@ -12,7 +12,7 @@ lng: -91.8100
 zipSample: ["71369"]
 zipCodes: ["71369"]
 localPaths: ["Avoyelles Parish / primary ZIP 71369", "Avoyelles Parish / coords 30.9800, -91.8100", "Avoyelles Parish / ZIP 71369 sector", "Avoyelles Parish / elevation 62 ft band"]
-zillowHomeValueUsd: 196030
+zillowHomeValueUsd: 194987
 data_fidelity: "synthetic"
 ---
 

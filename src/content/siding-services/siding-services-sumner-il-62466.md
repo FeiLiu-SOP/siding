@@ -12,7 +12,7 @@ lng: -87.8700
 zipSample: ["62466"]
 zipCodes: ["62466"]
 localPaths: ["Lawrence County / ZIP 62466 sector", "Lawrence County / primary ZIP 62466", "Lawrence County / elevation 466 ft band", "Lawrence County / coords 38.7200, -87.8700"]
-zillowHomeValueUsd: 232317
+zillowHomeValueUsd: 239923
 data_fidelity: "synthetic"
 ---
 

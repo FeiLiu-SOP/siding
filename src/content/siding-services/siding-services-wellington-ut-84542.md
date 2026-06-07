@@ -12,7 +12,7 @@ lng: -110.7300
 zipSample: ["84542", "84501"]
 zipCodes: ["84542", "84501"]
 localPaths: ["Carbon County / ZIP 84542 sector", "Carbon County / primary ZIP 84542", "Carbon County / ZIP 84501 sector", "Carbon County / elevation 5394 ft band", "Carbon County / coords 39.5400, -110.7300"]
-zillowHomeValueUsd: 554863
+zillowHomeValueUsd: 552960
 data_fidelity: "synthetic"
 ---
 

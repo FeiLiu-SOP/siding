@@ -12,7 +12,7 @@ lng: -76.5800
 zipSample: ["17866"]
 zipCodes: ["17866"]
 localPaths: ["Northumberland County / ZIP 17866 sector", "Northumberland County / coords 40.7800, -76.5800", "Northumberland County / elevation 984 ft band", "Northumberland County / primary ZIP 17866"]
-zillowHomeValueUsd: 69839
+zillowHomeValueUsd: 69854
 ---
 
 **Engineering Notice for Fairview-Ferndale:** Structural integrity verification: Facade Renewal calibrated for 99 mph localized wind load factor. Elevation: 984 ft AMSL. Regional dispatch grid: Northumberland County.

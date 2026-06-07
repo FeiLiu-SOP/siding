@@ -12,7 +12,7 @@ lng: -66.4100
 zipSample: ["00769"]
 zipCodes: ["00769"]
 localPaths: ["Coamo County / elevation 482 ft band", "Coamo County / coords 18.0600, -66.4100", "Coamo County / primary ZIP 00769", "Coamo County / ZIP 00769 sector"]
-zillowHomeValueUsd: 371017
+zillowHomeValueUsd: 365487
 data_fidelity: "synthetic"
 ---
 

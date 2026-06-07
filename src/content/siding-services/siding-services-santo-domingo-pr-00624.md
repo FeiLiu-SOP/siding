@@ -12,7 +12,7 @@ lng: -66.7500
 zipSample: ["00624"]
 zipCodes: ["00624"]
 localPaths: ["Peñuelas County / primary ZIP 00624", "Peñuelas County / elevation 1188 ft band", "Peñuelas County / ZIP 00624 sector", "Peñuelas County / coords 18.0700, -66.7500"]
-zillowHomeValueUsd: 359921
+zillowHomeValueUsd: 356429
 data_fidelity: "synthetic"
 ---
 

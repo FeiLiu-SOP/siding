@@ -12,7 +12,7 @@ lng: -93.1800
 zipSample: ["71446", "71459"]
 zipCodes: ["71446", "71459"]
 localPaths: ["Vernon Parish / ZIP 71446 sector", "Vernon Parish / primary ZIP 71459", "Vernon Parish / ZIP 71459 sector", "Vernon Parish / coords 31.1000, -93.1800", "Vernon Parish / elevation 387 ft band"]
-zillowHomeValueUsd: 197719
+zillowHomeValueUsd: 187561
 data_fidelity: "synthetic"
 ---
 

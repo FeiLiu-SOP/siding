@@ -12,7 +12,7 @@ lng: -74.3100
 zipSample: ["08832"]
 zipCodes: ["08832"]
 localPaths: ["Middlesex County / elevation 23 ft band", "Middlesex County / coords 40.5100, -74.3100", "Middlesex County / primary ZIP 08832", "Middlesex County / ZIP 08832 sector"]
-zillowHomeValueUsd: 646984
+zillowHomeValueUsd: 700631
 data_fidelity: "synthetic"
 ---
 

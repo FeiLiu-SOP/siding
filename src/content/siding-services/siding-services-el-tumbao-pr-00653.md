@@ -12,7 +12,7 @@ lng: -66.9000
 zipSample: ["00653"]
 zipCodes: ["00653"]
 localPaths: ["Guánica County / coords 18.0000, -66.9000", "Guánica County / ZIP 00653 sector", "Guánica County / elevation 325 ft band", "Guánica County / primary ZIP 00653"]
-zillowHomeValueUsd: 372046
+zillowHomeValueUsd: 371687
 data_fidelity: "synthetic"
 ---
 

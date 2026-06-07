@@ -12,7 +12,7 @@ lng: -76.1300
 zipSample: ["21005"]
 zipCodes: ["21005"]
 localPaths: ["Harford County / primary ZIP 21005", "Harford County / elevation 33 ft band", "Harford County / coords 39.4700, -76.1300", "Harford County / ZIP 21005 sector"]
-zillowHomeValueUsd: 490267
+zillowHomeValueUsd: 490080
 data_fidelity: "synthetic"
 ---
 

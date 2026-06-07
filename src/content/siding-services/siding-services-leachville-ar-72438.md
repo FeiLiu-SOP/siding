@@ -12,7 +12,7 @@ lng: -90.2600
 zipSample: ["72438"]
 zipCodes: ["72438"]
 localPaths: ["Mississippi County / ZIP 72438 sector", "Mississippi County / primary ZIP 72438", "Mississippi County / elevation 226 ft band", "Mississippi County / coords 35.9000, -90.2600"]
-zillowHomeValueUsd: 204372
+zillowHomeValueUsd: 202776
 data_fidelity: "synthetic"
 ---
 

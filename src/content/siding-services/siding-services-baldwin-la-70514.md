@@ -12,7 +12,7 @@ lng: -91.5500
 zipSample: ["70538", "70514"]
 zipCodes: ["70538", "70514"]
 localPaths: ["St. Mary Parish / primary ZIP 70514", "St. Mary Parish / ZIP 70514 sector", "St. Mary Parish / elevation 26 ft band", "St. Mary Parish / ZIP 70538 sector", "St. Mary Parish / coords 29.8400, -91.5500"]
-zillowHomeValueUsd: 196904
+zillowHomeValueUsd: 181676
 data_fidelity: "synthetic"
 ---
 

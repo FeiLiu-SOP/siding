@@ -12,7 +12,7 @@ lng: -80.4400
 zipSample: ["32970", "32967", "32958"]
 zipCodes: ["32970", "32958", "32967"]
 localPaths: ["Indian River County / ZIP 32970 sector", "Indian River County / primary ZIP 32970", "Indian River County / coords 27.7500, -80.4400", "Indian River County / ZIP 32958 sector", "Indian River County / ZIP 32967 sector"]
-zillowHomeValueUsd: 398674
+zillowHomeValueUsd: 455195
 data_fidelity: "synthetic"
 ---
 

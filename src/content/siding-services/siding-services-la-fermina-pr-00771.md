@@ -12,7 +12,7 @@ lng: -65.8500
 zipSample: ["00791", "00771"]
 zipCodes: ["00771", "00791"]
 localPaths: ["Humacao County / ZIP 00771 sector", "Humacao County / coords 18.1700, -65.8500", "Humacao County / elevation 420 ft band", "Humacao County / ZIP 00791 sector", "Humacao County / primary ZIP 00771"]
-zillowHomeValueUsd: 369419
+zillowHomeValueUsd: 378221
 data_fidelity: "synthetic"
 ---
 

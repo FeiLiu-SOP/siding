@@ -12,7 +12,7 @@ lng: -104.6800
 zipSample: ["88435"]
 zipCodes: ["88435"]
 localPaths: ["Guadalupe County / ZIP 88435 sector", "Guadalupe County / elevation 4567 ft band", "Guadalupe County / primary ZIP 88435", "Guadalupe County / coords 34.9400, -104.6800"]
-zillowHomeValueUsd: 310616
+zillowHomeValueUsd: 303357
 data_fidelity: "synthetic"
 ---
 

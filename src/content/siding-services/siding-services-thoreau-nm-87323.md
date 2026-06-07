@@ -12,7 +12,7 @@ lng: -108.2000
 zipSample: ["87323"]
 zipCodes: ["87323"]
 localPaths: ["McKinley County / ZIP 87323 sector", "McKinley County / elevation 7241 ft band", "McKinley County / primary ZIP 87323", "McKinley County / coords 35.4300, -108.2000"]
-zillowHomeValueUsd: 311183
+zillowHomeValueUsd: 325182
 data_fidelity: "synthetic"
 ---
 

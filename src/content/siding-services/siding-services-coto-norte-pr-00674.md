@@ -12,7 +12,7 @@ lng: -66.4400
 zipSample: ["00674"]
 zipCodes: ["00674"]
 localPaths: ["Manatí County / elevation 282 ft band", "Manatí County / coords 18.4300, -66.4400", "Manatí County / primary ZIP 00674", "Manatí County / ZIP 00674 sector"]
-zillowHomeValueUsd: 378351
+zillowHomeValueUsd: 377629
 data_fidelity: "synthetic"
 ---
 

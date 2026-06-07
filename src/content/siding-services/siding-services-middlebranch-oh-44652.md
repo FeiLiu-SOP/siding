@@ -12,7 +12,7 @@ lng: -81.3300
 zipSample: ["44652", "44721"]
 zipCodes: ["44652", "44721"]
 localPaths: ["Stark County / elevation 1112 ft band", "Stark County / ZIP 44721 sector", "Stark County / ZIP 44652 sector", "Stark County / primary ZIP 44652", "Stark County / coords 40.9000, -81.3300"]
-zillowHomeValueUsd: 237827
+zillowHomeValueUsd: 239305
 data_fidelity: "synthetic"
 ---
 

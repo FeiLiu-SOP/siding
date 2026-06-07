@@ -12,7 +12,7 @@ lng: -66.2700
 zipSample: ["00953"]
 zipCodes: ["00953"]
 localPaths: ["Toa Alta County / ZIP 00953 sector", "Toa Alta County / primary ZIP 00953", "Toa Alta County / coords 18.3500, -66.2700", "Toa Alta County / elevation 440 ft band"]
-zillowHomeValueUsd: 374400
+zillowHomeValueUsd: 381164
 data_fidelity: "synthetic"
 ---
 

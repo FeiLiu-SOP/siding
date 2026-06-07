@@ -12,7 +12,7 @@ lng: -85.1900
 zipSample: ["30149"]
 zipCodes: ["30149"]
 localPaths: ["Floyd County / elevation 610 ft band", "Floyd County / ZIP 30149 sector", "Floyd County / coords 34.2900, -85.1900", "Floyd County / primary ZIP 30149"]
-zillowHomeValueUsd: 283161
+zillowHomeValueUsd: 294102
 data_fidelity: "synthetic"
 ---
 

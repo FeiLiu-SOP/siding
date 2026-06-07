@@ -12,7 +12,7 @@ lng: -71.2800
 zipSample: ["01731"]
 zipCodes: ["01731"]
 localPaths: ["Middlesex County / elevation 151 ft band", "Middlesex County / primary ZIP 01731", "Middlesex County / ZIP 01731 sector", "Middlesex County / coords 42.4600, -71.2800"]
-zillowHomeValueUsd: 717427
+zillowHomeValueUsd: 720000
 data_fidelity: "synthetic"
 ---
 

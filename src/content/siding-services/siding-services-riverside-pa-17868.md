@@ -12,7 +12,7 @@ lng: -76.6500
 zipSample: ["17868", "17821"]
 zipCodes: ["17868", "17821"]
 localPaths: ["Northumberland County / ZIP 17821 sector", "Northumberland County / ZIP 17868 sector", "Northumberland County / primary ZIP 17868", "Northumberland County / coords 40.9500, -76.6500", "Northumberland County / elevation 564 ft band"]
-zillowHomeValueUsd: 271263
+zillowHomeValueUsd: 277881
 data_fidelity: "synthetic"
 ---
 

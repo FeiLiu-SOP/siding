@@ -12,7 +12,7 @@ lng: -81.6100
 zipSample: ["28655", "28619"]
 zipCodes: ["28619", "28655"]
 localPaths: ["Burke County / ZIP 28655 sector", "Burke County / primary ZIP 28619", "Burke County / coords 35.7600, -81.6100", "Burke County / elevation 1237 ft band", "Burke County / ZIP 28619 sector"]
-zillowHomeValueUsd: 326363
+zillowHomeValueUsd: 314639
 data_fidelity: "synthetic"
 ---
 

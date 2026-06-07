@@ -12,7 +12,7 @@ lng: -99.7400
 zipSample: ["79252"]
 zipCodes: ["79252"]
 localPaths: ["Hardeman County / ZIP 79252 sector", "Hardeman County / coords 34.3000, -99.7400", "Hardeman County / primary ZIP 79252", "Hardeman County / elevation 1588 ft band"]
-zillowHomeValueUsd: 303448
+zillowHomeValueUsd: 299993
 data_fidelity: "synthetic"
 ---
 

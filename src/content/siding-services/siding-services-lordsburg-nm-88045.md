@@ -12,7 +12,7 @@ lng: -108.7000
 zipSample: ["88045"]
 zipCodes: ["88045"]
 localPaths: ["Hidalgo County / ZIP 88045 sector", "Hidalgo County / coords 32.3400, -108.7000", "Hidalgo County / elevation 4278 ft band", "Hidalgo County / primary ZIP 88045"]
-zillowHomeValueUsd: 302533
+zillowHomeValueUsd: 321976
 data_fidelity: "synthetic"
 ---
 

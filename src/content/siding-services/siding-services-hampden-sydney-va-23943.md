@@ -12,7 +12,7 @@ lng: -78.4700
 zipSample: ["23943", "23901"]
 zipCodes: ["23901", "23943"]
 localPaths: ["Prince Edward County / primary ZIP 23943", "Prince Edward County / ZIP 23943 sector", "Prince Edward County / coords 37.2400, -78.4700", "Prince Edward County / elevation 535 ft band", "Prince Edward County / ZIP 23901 sector"]
-zillowHomeValueUsd: 383635
+zillowHomeValueUsd: 358373
 data_fidelity: "synthetic"
 ---
 

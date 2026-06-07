@@ -12,7 +12,7 @@ lng: -87.9100
 zipSample: ["36532", "36564"]
 zipCodes: ["36532", "36564"]
 localPaths: ["Baldwin County / primary ZIP 36564", "Baldwin County / ZIP 36532 sector", "Baldwin County / coords 30.4900, -87.9100", "Baldwin County / elevation 43 ft band", "Baldwin County / ZIP 36564 sector"]
-zillowHomeValueUsd: 207443
+zillowHomeValueUsd: 223228
 data_fidelity: "synthetic"
 ---
 

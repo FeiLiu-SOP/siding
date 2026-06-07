@@ -12,7 +12,7 @@ lng: -98.7000
 zipSample: ["78011"]
 zipCodes: ["78011"]
 localPaths: ["Atascosa County / elevation 554 ft band", "Atascosa County / primary ZIP 78011", "Atascosa County / ZIP 78011 sector", "Atascosa County / coords 28.8600, -98.7000"]
-zillowHomeValueUsd: 309913
+zillowHomeValueUsd: 301317
 data_fidelity: "synthetic"
 ---
 

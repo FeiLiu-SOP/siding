@@ -12,7 +12,7 @@ lng: -65.8500
 zipSample: ["00772"]
 zipCodes: ["00772"]
 localPaths: ["Loíza County / coords 18.4300, -65.8500", "Loíza County / primary ZIP 00772", "Loíza County / ZIP 00772 sector", "Loíza County / elevation 20 ft band"]
-zillowHomeValueUsd: 381037
+zillowHomeValueUsd: 380232
 data_fidelity: "synthetic"
 ---
 

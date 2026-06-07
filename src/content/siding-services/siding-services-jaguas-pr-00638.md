@@ -12,7 +12,7 @@ lng: -66.4800
 zipSample: ["00638"]
 zipCodes: ["00638"]
 localPaths: ["Ciales County / elevation 1178 ft band", "Ciales County / coords 18.3100, -66.4800", "Ciales County / primary ZIP 00638", "Ciales County / ZIP 00638 sector"]
-zillowHomeValueUsd: 359463
+zillowHomeValueUsd: 369625
 data_fidelity: "synthetic"
 ---
 

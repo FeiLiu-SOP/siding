@@ -12,7 +12,7 @@ lng: -65.4400
 zipSample: ["00765"]
 zipCodes: ["00765"]
 localPaths: ["Vieques County / coords 18.1500, -65.4400", "Vieques County / ZIP 00765 sector", "Vieques County / primary ZIP 00765", "Vieques County / elevation 121 ft band"]
-zillowHomeValueUsd: 378519
+zillowHomeValueUsd: 375830
 data_fidelity: "synthetic"
 ---
 

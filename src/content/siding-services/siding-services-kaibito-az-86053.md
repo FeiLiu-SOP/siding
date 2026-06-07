@@ -12,7 +12,7 @@ lng: -111.1100
 zipSample: ["86053"]
 zipCodes: ["86053"]
 localPaths: ["Coconino County / coords 36.5900, -111.1100", "Coconino County / ZIP 86053 sector", "Coconino County / primary ZIP 86053", "Coconino County / elevation 6040 ft band"]
-zillowHomeValueUsd: 430221
+zillowHomeValueUsd: 432897
 data_fidelity: "synthetic"
 ---
 

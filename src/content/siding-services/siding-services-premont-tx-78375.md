@@ -12,7 +12,7 @@ lng: -98.1200
 zipSample: ["78375"]
 zipCodes: ["78375"]
 localPaths: ["Jim Wells County / ZIP 78375 sector", "Jim Wells County / coords 27.3600, -98.1200", "Jim Wells County / elevation 174 ft band", "Jim Wells County / primary ZIP 78375"]
-zillowHomeValueUsd: 302543
+zillowHomeValueUsd: 306374
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -99.7400
 zipSample: ["58316"]
 zipCodes: ["58316"]
 localPaths: ["Rolette County / primary ZIP 58316", "Rolette County / elevation 1965 ft band", "Rolette County / ZIP 58316 sector", "Rolette County / coords 48.8400, -99.7400"]
-zillowHomeValueUsd: 255168
+zillowHomeValueUsd: 242336
 data_fidelity: "synthetic"
 ---
 

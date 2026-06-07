@@ -12,7 +12,7 @@ lng: -66.9000
 zipSample: ["00637"]
 zipCodes: ["00637"]
 localPaths: ["Sabana Grande County / ZIP 00637 sector", "Sabana Grande County / primary ZIP 00637", "Sabana Grande County / coords 18.0400, -66.9000", "Sabana Grande County / elevation 344 ft band"]
-zillowHomeValueUsd: 360252
+zillowHomeValueUsd: 354900
 data_fidelity: "synthetic"
 ---
 

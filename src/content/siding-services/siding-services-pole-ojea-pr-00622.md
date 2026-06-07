@@ -12,7 +12,7 @@ lng: -67.1800
 zipSample: ["00622"]
 zipCodes: ["00622"]
 localPaths: ["Cabo Rojo County / coords 17.9700, -67.1800", "Cabo Rojo County / primary ZIP 00622", "Cabo Rojo County / ZIP 00622 sector", "Cabo Rojo County / elevation 43 ft band"]
-zillowHomeValueUsd: 355475
+zillowHomeValueUsd: 379885
 data_fidelity: "synthetic"
 ---
 

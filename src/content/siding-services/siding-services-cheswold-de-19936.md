@@ -12,7 +12,7 @@ lng: -75.5900
 zipSample: ["19936", "19901", "19904"]
 zipCodes: ["19936", "19901", "19904"]
 localPaths: ["Kent County / ZIP 19901 sector", "Kent County / elevation 49 ft band", "Kent County / coords 39.2200, -75.5900", "Kent County / ZIP 19936 sector", "Kent County / ZIP 19904 sector"]
-zillowHomeValueUsd: 442687
+zillowHomeValueUsd: 434892
 data_fidelity: "synthetic"
 ---
 

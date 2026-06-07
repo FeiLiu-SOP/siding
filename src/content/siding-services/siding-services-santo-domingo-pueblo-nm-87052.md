@@ -12,7 +12,7 @@ lng: -106.3700
 zipSample: ["87052"]
 zipCodes: ["87052"]
 localPaths: ["Sandoval County / elevation 5164 ft band", "Sandoval County / coords 35.5200, -106.3700", "Sandoval County / primary ZIP 87052", "Sandoval County / ZIP 87052 sector"]
-zillowHomeValueUsd: 308156
+zillowHomeValueUsd: 316019
 data_fidelity: "synthetic"
 ---
 

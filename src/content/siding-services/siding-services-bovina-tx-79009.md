@@ -12,7 +12,7 @@ lng: -102.8800
 zipSample: ["79009"]
 zipCodes: ["79009"]
 localPaths: ["Parmer County / coords 34.5200, -102.8800", "Parmer County / elevation 4075 ft band", "Parmer County / ZIP 79009 sector", "Parmer County / primary ZIP 79009"]
-zillowHomeValueUsd: 292129
+zillowHomeValueUsd: 303673
 data_fidelity: "synthetic"
 ---
 

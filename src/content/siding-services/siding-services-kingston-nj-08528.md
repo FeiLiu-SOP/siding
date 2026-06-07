@@ -12,7 +12,7 @@ lng: -74.6100
 zipSample: ["08528", "08540"]
 zipCodes: ["08528", "08540"]
 localPaths: ["Somerset County / elevation 102 ft band", "Somerset County / coords 40.3800, -74.6100", "Somerset County / ZIP 08528 sector", "Somerset County / ZIP 08540 sector", "Somerset County / primary ZIP 08528"]
-zillowHomeValueUsd: 664870
+zillowHomeValueUsd: 700217
 data_fidelity: "synthetic"
 ---
 

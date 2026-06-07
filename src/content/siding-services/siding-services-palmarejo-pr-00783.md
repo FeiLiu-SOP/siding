@@ -12,7 +12,7 @@ lng: -66.2900
 zipSample: ["00783"]
 zipCodes: ["00783"]
 localPaths: ["Corozal County / elevation 554 ft band", "Corozal County / ZIP 00783 sector", "Corozal County / primary ZIP 00783", "Corozal County / coords 18.3100, -66.2900"]
-zillowHomeValueUsd: 374867
+zillowHomeValueUsd: 368476
 data_fidelity: "synthetic"
 ---
 

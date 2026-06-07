@@ -12,7 +12,7 @@ lng: -123.7000
 zipSample: ["95546"]
 zipCodes: ["95546"]
 localPaths: ["Humboldt County / ZIP 95546 sector", "Humboldt County / primary ZIP 95546", "Humboldt County / coords 41.0800, -123.7000", "Humboldt County / elevation 305 ft band"]
-zillowHomeValueUsd: 844074
+zillowHomeValueUsd: 849277
 data_fidelity: "synthetic"
 ---
 

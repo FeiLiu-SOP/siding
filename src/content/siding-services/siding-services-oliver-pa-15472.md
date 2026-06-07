@@ -12,7 +12,7 @@ lng: -79.7200
 zipSample: ["15401", "15472"]
 zipCodes: ["15401", "15472"]
 localPaths: ["Fayette County / ZIP 15401 sector", "Fayette County / elevation 958 ft band", "Fayette County / ZIP 15472 sector", "Fayette County / coords 39.9200, -79.7200", "Fayette County / primary ZIP 15472"]
-zillowHomeValueUsd: 271588
+zillowHomeValueUsd: 261330
 data_fidelity: "synthetic"
 ---
 

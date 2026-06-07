@@ -12,7 +12,7 @@ lng: -109.3300
 zipSample: ["85540"]
 zipCodes: ["85540"]
 localPaths: ["Greenlee County / primary ZIP 85540", "Greenlee County / coords 33.0500, -109.3300", "Greenlee County / elevation 4154 ft band", "Greenlee County / ZIP 85540 sector"]
-zillowHomeValueUsd: 436413
+zillowHomeValueUsd: 424182
 data_fidelity: "synthetic"
 ---
 

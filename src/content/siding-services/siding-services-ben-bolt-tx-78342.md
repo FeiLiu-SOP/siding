@@ -12,7 +12,7 @@ lng: -98.1000
 zipSample: ["78342", "78332"]
 zipCodes: ["78332", "78342"]
 localPaths: ["Jim Wells County / primary ZIP 78342", "Jim Wells County / elevation 203 ft band", "Jim Wells County / ZIP 78342 sector", "Jim Wells County / ZIP 78332 sector", "Jim Wells County / coords 27.6700, -98.1000"]
-zillowHomeValueUsd: 297373
+zillowHomeValueUsd: 296422
 data_fidelity: "synthetic"
 ---
 

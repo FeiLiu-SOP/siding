@@ -12,7 +12,7 @@ lng: -65.6400
 zipSample: ["00738"]
 zipCodes: ["00738"]
 localPaths: ["Fajardo County / coords 18.3000, -65.6400", "Fajardo County / ZIP 00738 sector", "Fajardo County / primary ZIP 00738", "Fajardo County / elevation 98 ft band"]
-zillowHomeValueUsd: 379051
+zillowHomeValueUsd: 376720
 data_fidelity: "synthetic"
 ---
 

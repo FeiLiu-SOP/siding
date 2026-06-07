@@ -12,7 +12,7 @@ lng: -111.2700
 zipSample: ["84036"]
 zipCodes: ["84036"]
 localPaths: ["Summit County / ZIP 84036 sector", "Summit County / primary ZIP 84036", "Summit County / elevation 6594 ft band", "Summit County / coords 40.6100, -111.2700"]
-zillowHomeValueUsd: 1017776
+zillowHomeValueUsd: 1017821
 ---
 
 **Engineering Notice for Francis:** Site context locked to Summit County. Weather Barrier Wrap integrity verification recorded.

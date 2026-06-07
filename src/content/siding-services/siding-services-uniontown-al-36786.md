@@ -12,7 +12,7 @@ lng: -87.5000
 zipSample: ["36786"]
 zipCodes: ["36786"]
 localPaths: ["Perry County / ZIP 36786 sector", "Perry County / primary ZIP 36786", "Perry County / elevation 233 ft band", "Perry County / coords 32.4500, -87.5000"]
-zillowHomeValueUsd: 206167
+zillowHomeValueUsd: 220514
 data_fidelity: "synthetic"
 ---
 

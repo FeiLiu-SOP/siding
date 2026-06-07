@@ -12,7 +12,7 @@ lng: -110.9600
 zipSample: ["83127"]
 zipCodes: ["83127"]
 localPaths: ["Lincoln County / coords 42.9800, -110.9600", "Lincoln County / ZIP 83127 sector", "Lincoln County / elevation 6293 ft band", "Lincoln County / primary ZIP 83127"]
-zillowHomeValueUsd: 444440
+zillowHomeValueUsd: 425308
 data_fidelity: "synthetic"
 ---
 

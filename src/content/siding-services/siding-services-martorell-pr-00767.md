@@ -12,7 +12,7 @@ lng: -65.9000
 zipSample: ["00767"]
 zipCodes: ["00767"]
 localPaths: ["Yabucoa County / coords 18.0700, -65.9000", "Yabucoa County / primary ZIP 00767", "Yabucoa County / elevation 92 ft band", "Yabucoa County / ZIP 00767 sector"]
-zillowHomeValueUsd: 381074
+zillowHomeValueUsd: 368435
 data_fidelity: "synthetic"
 ---
 

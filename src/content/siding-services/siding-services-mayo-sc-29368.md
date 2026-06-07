@@ -12,7 +12,7 @@ lng: -81.8500
 zipSample: ["29330", "29368", "29323"]
 zipCodes: ["29368", "29323", "29330"]
 localPaths: ["Spartanburg County / ZIP 29323 sector", "Spartanburg County / elevation 879 ft band", "Spartanburg County / ZIP 29368 sector", "Spartanburg County / ZIP 29330 sector", "Spartanburg County / primary ZIP 29368"]
-zillowHomeValueUsd: 282969
+zillowHomeValueUsd: 292649
 data_fidelity: "synthetic"
 ---
 

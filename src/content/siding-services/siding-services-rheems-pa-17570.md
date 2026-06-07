@@ -12,7 +12,7 @@ lng: -76.5700
 zipSample: ["17552", "17570", "17022"]
 zipCodes: ["17022", "17552", "17570"]
 localPaths: ["Lancaster County / ZIP 17022 sector", "Lancaster County / elevation 400 ft band", "Lancaster County / coords 40.1300, -76.5700", "Lancaster County / ZIP 17552 sector", "Lancaster County / ZIP 17570 sector"]
-zillowHomeValueUsd: 259941
+zillowHomeValueUsd: 277915
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -121.4000
 zipSample: ["95652"]
 zipCodes: ["95652"]
 localPaths: ["Sacramento County / elevation 62 ft band", "Sacramento County / ZIP 95652 sector", "Sacramento County / primary ZIP 95652", "Sacramento County / coords 38.6600, -121.4000"]
-zillowHomeValueUsd: 878059
+zillowHomeValueUsd: 878791
 data_fidelity: "synthetic"
 ---
 

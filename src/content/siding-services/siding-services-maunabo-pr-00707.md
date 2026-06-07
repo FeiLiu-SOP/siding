@@ -12,7 +12,7 @@ lng: -65.9000
 zipSample: ["00707"]
 zipCodes: ["00707"]
 localPaths: ["Maunabo County / coords 18.0100, -65.9000", "Maunabo County / primary ZIP 00707", "Maunabo County / elevation 43 ft band", "Maunabo County / ZIP 00707 sector"]
-zillowHomeValueUsd: 354909
+zillowHomeValueUsd: 381887
 data_fidelity: "synthetic"
 ---
 

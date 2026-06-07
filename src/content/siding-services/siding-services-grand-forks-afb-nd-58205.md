@@ -12,7 +12,7 @@ lng: -97.3900
 zipSample: ["58204", "58205"]
 zipCodes: ["58205", "58204"]
 localPaths: ["Grand Forks County / primary ZIP 58205", "Grand Forks County / ZIP 58204 sector", "Grand Forks County / ZIP 58205 sector", "Grand Forks County / coords 47.9600, -97.3900", "Grand Forks County / elevation 896 ft band"]
-zillowHomeValueUsd: 244883
+zillowHomeValueUsd: 240074
 data_fidelity: "synthetic"
 ---
 

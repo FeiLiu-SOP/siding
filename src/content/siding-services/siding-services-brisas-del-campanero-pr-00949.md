@@ -12,7 +12,7 @@ lng: -66.2300
 zipSample: ["00949"]
 zipCodes: ["00949"]
 localPaths: ["Toa Baja County / primary ZIP 00949", "Toa Baja County / ZIP 00949 sector", "Toa Baja County / elevation 10 ft band", "Toa Baja County / coords 18.4300, -66.2300"]
-zillowHomeValueUsd: 362882
+zillowHomeValueUsd: 385165
 data_fidelity: "synthetic"
 ---
 

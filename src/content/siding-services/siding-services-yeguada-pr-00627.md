@@ -12,7 +12,7 @@ lng: -66.8800
 zipSample: ["00627"]
 zipCodes: ["00627"]
 localPaths: ["Camuy County / ZIP 00627 sector", "Camuy County / elevation 125 ft band", "Camuy County / primary ZIP 00627", "Camuy County / coords 18.4800, -66.8800"]
-zillowHomeValueUsd: 369970
+zillowHomeValueUsd: 368942
 data_fidelity: "synthetic"
 ---
 

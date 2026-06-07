@@ -12,7 +12,7 @@ lng: -67.1900
 zipSample: ["00610"]
 zipCodes: ["00610"]
 localPaths: ["Añasco County / elevation 13 ft band", "Añasco County / ZIP 00610 sector", "Añasco County / primary ZIP 00610", "Añasco County / coords 18.2900, -67.1900"]
-zillowHomeValueUsd: 376785
+zillowHomeValueUsd: 370661
 data_fidelity: "synthetic"
 ---
 

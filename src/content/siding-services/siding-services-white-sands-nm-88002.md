@@ -12,7 +12,7 @@ lng: -106.4800
 zipSample: ["88002"]
 zipCodes: ["88002"]
 localPaths: ["Doña Ana County / ZIP 88002 sector", "Doña Ana County / elevation 4242 ft band", "Doña Ana County / coords 32.3800, -106.4800", "Doña Ana County / primary ZIP 88002"]
-zillowHomeValueUsd: 318054
+zillowHomeValueUsd: 314999
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -66.3900
 zipSample: ["00757"]
 zipCodes: ["00757"]
 localPaths: ["Santa Isabel County / ZIP 00757 sector", "Santa Isabel County / coords 18.0000, -66.3900", "Santa Isabel County / primary ZIP 00757", "Santa Isabel County / elevation 108 ft band"]
-zillowHomeValueUsd: 351962
+zillowHomeValueUsd: 360967
 data_fidelity: "synthetic"
 ---
 

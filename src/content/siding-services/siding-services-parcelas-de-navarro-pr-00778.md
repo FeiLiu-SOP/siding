@@ -12,7 +12,7 @@ lng: -66.0000
 zipSample: ["00778"]
 zipCodes: ["00778"]
 localPaths: ["Gurabo County / coords 18.2300, -66.0000", "Gurabo County / ZIP 00778 sector", "Gurabo County / elevation 213 ft band", "Gurabo County / primary ZIP 00778"]
-zillowHomeValueUsd: 374764
+zillowHomeValueUsd: 358274
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -66.6000
 zipSample: ["00688"]
 zipCodes: ["00688"]
 localPaths: ["Arecibo County / primary ZIP 00688", "Arecibo County / coords 18.3900, -66.6000", "Arecibo County / elevation 633 ft band", "Arecibo County / ZIP 00688 sector"]
-zillowHomeValueUsd: 359171
+zillowHomeValueUsd: 385257
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -121.6500
 zipSample: ["94548", "94513"]
 zipCodes: ["94513", "94548"]
 localPaths: ["Contra Costa County / coords 37.9600, -121.6500", "Contra Costa County / ZIP 94548 sector", "Contra Costa County / ZIP 94513 sector", "Contra Costa County / elevation 13 ft band", "Contra Costa County / primary ZIP 94548"]
-zillowHomeValueUsd: 854586
+zillowHomeValueUsd: 866965
 data_fidelity: "synthetic"
 ---
 

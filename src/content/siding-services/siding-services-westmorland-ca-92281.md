@@ -12,7 +12,7 @@ lng: -115.6200
 zipSample: ["92281"]
 zipCodes: ["92281"]
 localPaths: ["Imperial County / ZIP 92281 sector", "Imperial County / primary ZIP 92281", "Imperial County / coords 33.0400, -115.6200", "Imperial County / elevation -159 ft band"]
-zillowHomeValueUsd: 910712
+zillowHomeValueUsd: 838917
 data_fidelity: "synthetic"
 ---
 

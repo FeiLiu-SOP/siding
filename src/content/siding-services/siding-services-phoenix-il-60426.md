@@ -12,7 +12,7 @@ lng: -87.6300
 zipSample: ["60426"]
 zipCodes: ["60426"]
 localPaths: ["Cook County / coords 41.6100, -87.6300", "Cook County / primary ZIP 60426", "Cook County / ZIP 60426 sector", "Cook County / elevation 604 ft band"]
-zillowHomeValueUsd: 101351
+zillowHomeValueUsd: 101399
 ---
 
 **Engineering Notice for Phoenix:** Site context locked to Cook County. Coordinates: 41.6100, -87.6300. Weather Barrier Wrap integrity verification recorded.

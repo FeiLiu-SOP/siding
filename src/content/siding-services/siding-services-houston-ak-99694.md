@@ -12,7 +12,7 @@ lng: -149.8000
 zipSample: ["99694", "99652"]
 zipCodes: ["99652", "99694"]
 localPaths: ["Matanuska-Susitna County / primary ZIP 99694", "Matanuska-Susitna County / elevation 0 ft band", "Matanuska-Susitna County / coords 61.6200, -149.8000", "Matanuska-Susitna County / ZIP 99652 sector", "Matanuska-Susitna County / ZIP 99694 sector"]
-zillowHomeValueUsd: 366322
+zillowHomeValueUsd: 350259
 data_fidelity: "synthetic"
 ---
 

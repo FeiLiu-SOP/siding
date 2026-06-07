@@ -12,7 +12,7 @@ lng: -66.4400
 zipSample: ["00687"]
 zipCodes: ["00687"]
 localPaths: ["Morovis County / ZIP 00687 sector", "Morovis County / primary ZIP 00687", "Morovis County / coords 18.3500, -66.4400", "Morovis County / elevation 561 ft band"]
-zillowHomeValueUsd: 366579
+zillowHomeValueUsd: 365071
 data_fidelity: "synthetic"
 ---
 

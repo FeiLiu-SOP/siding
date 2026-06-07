@@ -12,7 +12,7 @@ lng: -105.8800
 zipSample: ["87527"]
 zipCodes: ["87527"]
 localPaths: ["Rio Arriba County / coords 36.1900, -105.8800", "Rio Arriba County / primary ZIP 87527", "Rio Arriba County / elevation 6191 ft band", "Rio Arriba County / ZIP 87527 sector"]
-zillowHomeValueUsd: 305786
+zillowHomeValueUsd: 319256
 data_fidelity: "synthetic"
 ---
 

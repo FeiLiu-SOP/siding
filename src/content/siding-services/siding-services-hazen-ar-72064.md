@@ -12,7 +12,7 @@ lng: -91.5700
 zipSample: ["72064"]
 zipCodes: ["72064"]
 localPaths: ["Prairie County / ZIP 72064 sector", "Prairie County / coords 34.8000, -91.5700", "Prairie County / elevation 230 ft band", "Prairie County / primary ZIP 72064"]
-zillowHomeValueUsd: 202454
+zillowHomeValueUsd: 192114
 data_fidelity: "synthetic"
 ---
 

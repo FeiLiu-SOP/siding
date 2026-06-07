@@ -12,7 +12,7 @@ lng: -109.0600
 zipSample: ["86515"]
 zipCodes: ["86515"]
 localPaths: ["Apache County / elevation 6759 ft band", "Apache County / primary ZIP 86515", "Apache County / ZIP 86515 sector", "Apache County / coords 35.6700, -109.0600"]
-zillowHomeValueUsd: 425018
+zillowHomeValueUsd: 440538
 data_fidelity: "synthetic"
 ---
 

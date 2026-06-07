@@ -12,7 +12,7 @@ lng: -94.9100
 zipSample: ["56670"]
 zipCodes: ["56670"]
 localPaths: ["Beltrami County / elevation 1237 ft band", "Beltrami County / coords 47.8700, -94.9100", "Beltrami County / primary ZIP 56670", "Beltrami County / ZIP 56670 sector"]
-zillowHomeValueUsd: 315007
+zillowHomeValueUsd: 297755
 data_fidelity: "synthetic"
 ---
 

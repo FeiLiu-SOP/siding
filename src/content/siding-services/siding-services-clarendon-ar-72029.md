@@ -12,7 +12,7 @@ lng: -91.3100
 zipSample: ["72029"]
 zipCodes: ["72029"]
 localPaths: ["Monroe County / ZIP 72029 sector", "Monroe County / elevation 174 ft band", "Monroe County / primary ZIP 72029", "Monroe County / coords 34.6900, -91.3100"]
-zillowHomeValueUsd: 204630
+zillowHomeValueUsd: 201541
 data_fidelity: "synthetic"
 ---
 

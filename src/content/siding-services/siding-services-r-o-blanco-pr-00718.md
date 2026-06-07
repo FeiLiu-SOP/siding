@@ -12,7 +12,7 @@ lng: -65.7900
 zipSample: ["00718"]
 zipCodes: ["00718"]
 localPaths: ["Naguabo County / ZIP 00718 sector", "Naguabo County / primary ZIP 00718", "Naguabo County / elevation 131 ft band", "Naguabo County / coords 18.2100, -65.7900"]
-zillowHomeValueUsd: 366649
+zillowHomeValueUsd: 379996
 data_fidelity: "synthetic"
 ---
 

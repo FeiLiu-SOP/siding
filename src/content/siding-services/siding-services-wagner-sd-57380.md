@@ -12,7 +12,7 @@ lng: -98.2900
 zipSample: ["57380"]
 zipCodes: ["57380"]
 localPaths: ["Charles Mix County / ZIP 57380 sector", "Charles Mix County / primary ZIP 57380", "Charles Mix County / coords 43.0800, -98.2900", "Charles Mix County / elevation 1453 ft band"]
-zillowHomeValueUsd: 314437
+zillowHomeValueUsd: 299745
 data_fidelity: "synthetic"
 ---
 

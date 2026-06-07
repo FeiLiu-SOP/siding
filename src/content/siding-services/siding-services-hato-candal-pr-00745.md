@@ -12,7 +12,7 @@ lng: -65.7900
 zipSample: ["00745"]
 zipCodes: ["00745"]
 localPaths: ["Río Grande County / elevation 161 ft band", "Río Grande County / coords 18.3700, -65.7900", "Río Grande County / primary ZIP 00745", "Río Grande County / ZIP 00745 sector"]
-zillowHomeValueUsd: 376692
+zillowHomeValueUsd: 366051
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -89.1700
 zipSample: ["39735"]
 zipCodes: ["39735"]
 localPaths: ["Choctaw County / ZIP 39735 sector", "Choctaw County / elevation 535 ft band", "Choctaw County / primary ZIP 39735", "Choctaw County / coords 33.3100, -89.1700"]
-zillowHomeValueUsd: 136774
+zillowHomeValueUsd: 136789
 ---
 
 **Engineering Notice for Ackerman:** Structural integrity verification: Wall Restoration calibrated for 108 mph localized wind load factor. Elevation: 535 ft AMSL. Coordinates: 33.3100, -89.1700. Regional dispatch grid: Choctaw County.

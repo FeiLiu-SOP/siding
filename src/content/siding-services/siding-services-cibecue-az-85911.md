@@ -12,7 +12,7 @@ lng: -110.4900
 zipSample: ["85911"]
 zipCodes: ["85911"]
 localPaths: ["Navajo County / coords 34.0300, -110.4900", "Navajo County / elevation 4967 ft band", "Navajo County / ZIP 85911 sector", "Navajo County / primary ZIP 85911"]
-zillowHomeValueUsd: 427287
+zillowHomeValueUsd: 440420
 data_fidelity: "synthetic"
 ---
 

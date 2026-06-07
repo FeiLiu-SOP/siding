@@ -12,7 +12,7 @@ lng: -66.0800
 zipSample: ["00784"]
 zipCodes: ["00784"]
 localPaths: ["Guayama County / elevation 253 ft band", "Guayama County / ZIP 00784 sector", "Guayama County / coords 17.9900, -66.0800", "Guayama County / primary ZIP 00784"]
-zillowHomeValueUsd: 358602
+zillowHomeValueUsd: 367869
 data_fidelity: "synthetic"
 ---
 

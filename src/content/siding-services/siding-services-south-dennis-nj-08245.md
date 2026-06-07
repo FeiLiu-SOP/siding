@@ -12,7 +12,7 @@ lng: -74.8000
 zipSample: ["08210", "08245"]
 zipCodes: ["08210", "08245"]
 localPaths: ["Cape May County / coords 39.1700, -74.8000", "Cape May County / ZIP 08210 sector", "Cape May County / primary ZIP 08245", "Cape May County / ZIP 08245 sector", "Cape May County / elevation 30 ft band"]
-zillowHomeValueUsd: 649509
+zillowHomeValueUsd: 698633
 data_fidelity: "synthetic"
 ---
 

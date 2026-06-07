@@ -12,7 +12,7 @@ lng: -83.2000
 zipSample: ["31605", "31699"]
 zipCodes: ["31605", "31699"]
 localPaths: ["Lowndes County / ZIP 31699 sector", "Lowndes County / elevation 233 ft band", "Lowndes County / primary ZIP 31699", "Lowndes County / ZIP 31605 sector", "Lowndes County / coords 30.9700, -83.2000"]
-zillowHomeValueUsd: 296678
+zillowHomeValueUsd: 289121
 data_fidelity: "synthetic"
 ---
 

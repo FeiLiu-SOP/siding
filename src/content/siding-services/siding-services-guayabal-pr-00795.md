@@ -12,7 +12,7 @@ lng: -66.5000
 zipSample: ["00795"]
 zipCodes: ["00795"]
 localPaths: ["Juana Díaz County / primary ZIP 00795", "Juana Díaz County / coords 18.0800, -66.5000", "Juana Díaz County / elevation 256 ft band", "Juana Díaz County / ZIP 00795 sector"]
-zillowHomeValueUsd: 365103
+zillowHomeValueUsd: 382672
 data_fidelity: "synthetic"
 ---
 

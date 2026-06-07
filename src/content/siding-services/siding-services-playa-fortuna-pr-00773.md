@@ -12,7 +12,7 @@ lng: -65.7500
 zipSample: ["00773"]
 zipCodes: ["00773"]
 localPaths: ["Luquillo County / ZIP 00773 sector", "Luquillo County / coords 18.3800, -65.7500", "Luquillo County / primary ZIP 00773", "Luquillo County / elevation 121 ft band"]
-zillowHomeValueUsd: 363142
+zillowHomeValueUsd: 370171
 data_fidelity: "synthetic"
 ---
 

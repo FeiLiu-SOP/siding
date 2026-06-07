@@ -12,7 +12,7 @@ lng: -90.1700
 zipSample: ["62090", "62060"]
 zipCodes: ["62090", "62060"]
 localPaths: ["Madison County / primary ZIP 62090", "Madison County / ZIP 62060 sector", "Madison County / elevation 417 ft band", "Madison County / coords 38.6700, -90.1700", "Madison County / ZIP 62090 sector"]
-zillowHomeValueUsd: 225716
+zillowHomeValueUsd: 240261
 data_fidelity: "synthetic"
 ---
 

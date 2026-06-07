@@ -12,7 +12,7 @@ lng: -105.9800
 zipSample: ["88311", "88310"]
 zipCodes: ["88310", "88311"]
 localPaths: ["Otero County / elevation 4111 ft band", "Otero County / coords 32.8200, -105.9800", "Otero County / primary ZIP 88311", "Otero County / ZIP 88310 sector", "Otero County / ZIP 88311 sector"]
-zillowHomeValueUsd: 315949
+zillowHomeValueUsd: 322474
 data_fidelity: "synthetic"
 ---
 

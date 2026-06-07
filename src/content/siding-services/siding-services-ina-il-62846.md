@@ -12,7 +12,7 @@ lng: -88.9000
 zipSample: ["62816", "62846"]
 zipCodes: ["62846", "62816"]
 localPaths: ["Jefferson County / primary ZIP 62846", "Jefferson County / coords 38.1500, -88.9000", "Jefferson County / ZIP 62816 sector", "Jefferson County / ZIP 62846 sector", "Jefferson County / elevation 423 ft band"]
-zillowHomeValueUsd: 223665
+zillowHomeValueUsd: 238518
 data_fidelity: "synthetic"
 ---
 

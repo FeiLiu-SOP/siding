@@ -12,7 +12,7 @@ lng: -91.0600
 zipSample: ["52761"]
 zipCodes: ["52761"]
 localPaths: ["Muscatine County / elevation 673 ft band", "Muscatine County / primary ZIP 52761", "Muscatine County / coords 41.4700, -91.0600", "Muscatine County / ZIP 52761 sector"]
-zillowHomeValueUsd: 183309
+zillowHomeValueUsd: 183339
 ---
 
 **Engineering Notice for Kent Estates:** Structural integrity verification: Wall Restoration calibrated for 104 mph localized wind load factor. Elevation: 673 ft AMSL. Regional dispatch grid: Muscatine County.

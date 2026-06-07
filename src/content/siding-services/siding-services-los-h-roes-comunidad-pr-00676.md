@@ -12,7 +12,7 @@ lng: -67.1200
 zipSample: ["00676"]
 zipCodes: ["00676"]
 localPaths: ["Moca County / ZIP 00676 sector", "Moca County / coords 18.3900, -67.1200", "Moca County / elevation 118 ft band", "Moca County / primary ZIP 00676"]
-zillowHomeValueUsd: 357744
+zillowHomeValueUsd: 368644
 data_fidelity: "synthetic"
 ---
 

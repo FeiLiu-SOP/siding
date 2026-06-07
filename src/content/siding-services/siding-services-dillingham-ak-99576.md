@@ -12,7 +12,7 @@ lng: -158.5400
 zipSample: ["99576"]
 zipCodes: ["99576"]
 localPaths: ["Dillingham County / primary ZIP 99576", "Dillingham County / coords 59.0500, -158.5400", "Dillingham County / elevation 102 ft band", "Dillingham County / ZIP 99576 sector"]
-zillowHomeValueUsd: 357053
+zillowHomeValueUsd: 350054
 data_fidelity: "synthetic"
 ---
 

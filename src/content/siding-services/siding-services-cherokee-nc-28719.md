@@ -12,7 +12,7 @@ lng: -83.3000
 zipSample: ["28719"]
 zipCodes: ["28719"]
 localPaths: ["Swain County / primary ZIP 28719", "Swain County / elevation 2490 ft band", "Swain County / coords 35.4900, -83.3000", "Swain County / ZIP 28719 sector"]
-zillowHomeValueUsd: 319696
+zillowHomeValueUsd: 316865
 data_fidelity: "synthetic"
 ---
 

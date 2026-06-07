@@ -12,7 +12,7 @@ lng: -86.5300
 zipSample: ["35147", "35078", "35185"]
 zipCodes: ["35078", "35185", "35147"]
 localPaths: ["Shelby County / coords 33.3700, -86.5300", "Shelby County / primary ZIP 35185", "Shelby County / ZIP 35185 sector", "Shelby County / ZIP 35147 sector", "Shelby County / elevation 495 ft band"]
-zillowHomeValueUsd: 206247
+zillowHomeValueUsd: 216067
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -101.2300
 zipSample: ["57625"]
 zipCodes: ["57625"]
 localPaths: ["Ziebach County / primary ZIP 57625", "Ziebach County / ZIP 57625 sector", "Ziebach County / coords 44.9900, -101.2300", "Ziebach County / elevation 2418 ft band"]
-zillowHomeValueUsd: 310584
+zillowHomeValueUsd: 312316
 data_fidelity: "synthetic"
 ---
 

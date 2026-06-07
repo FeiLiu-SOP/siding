@@ -12,7 +12,7 @@ lng: -110.3300
 zipSample: ["86032"]
 zipCodes: ["86032"]
 localPaths: ["Navajo County / coords 34.9600, -110.3300", "Navajo County / ZIP 86032 sector", "Navajo County / primary ZIP 86032", "Navajo County / elevation 5039 ft band"]
-zillowHomeValueUsd: 430024
+zillowHomeValueUsd: 422335
 data_fidelity: "synthetic"
 ---
 

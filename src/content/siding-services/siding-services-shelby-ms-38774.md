@@ -12,7 +12,7 @@ lng: -90.7700
 zipSample: ["38774"]
 zipCodes: ["38774"]
 localPaths: ["Bolivar County / elevation 161 ft band", "Bolivar County / coords 33.9500, -90.7700", "Bolivar County / primary ZIP 38774", "Bolivar County / ZIP 38774 sector"]
-zillowHomeValueUsd: 164631
+zillowHomeValueUsd: 163800
 data_fidelity: "synthetic"
 ---
 

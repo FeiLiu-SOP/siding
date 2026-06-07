@@ -12,7 +12,7 @@ lng: -111.5800
 zipSample: ["84646"]
 zipCodes: ["84646"]
 localPaths: ["Sanpete County / coords 39.5300, -111.5800", "Sanpete County / ZIP 84646 sector", "Sanpete County / elevation 5587 ft band", "Sanpete County / primary ZIP 84646"]
-zillowHomeValueUsd: 537077
+zillowHomeValueUsd: 536603
 data_fidelity: "synthetic"
 ---
 

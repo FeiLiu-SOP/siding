@@ -12,7 +12,7 @@ lng: -90.5500
 zipSample: ["70049"]
 zipCodes: ["70049"]
 localPaths: ["St. John the Baptist Parish / coords 30.0400, -90.5500", "St. John the Baptist Parish / ZIP 70049 sector", "St. John the Baptist Parish / elevation 10 ft band", "St. John the Baptist Parish / primary ZIP 70049"]
-zillowHomeValueUsd: 190618
+zillowHomeValueUsd: 187106
 data_fidelity: "synthetic"
 ---
 

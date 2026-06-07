@@ -12,7 +12,7 @@ lng: -66.9300
 zipSample: ["00678"]
 zipCodes: ["00678"]
 localPaths: ["Quebradillas County / primary ZIP 00678", "Quebradillas County / coords 18.4400, -66.9300", "Quebradillas County / ZIP 00678 sector", "Quebradillas County / elevation 620 ft band"]
-zillowHomeValueUsd: 374031
+zillowHomeValueUsd: 369807
 data_fidelity: "synthetic"
 ---
 

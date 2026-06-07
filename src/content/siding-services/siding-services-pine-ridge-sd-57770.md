@@ -12,7 +12,7 @@ lng: -102.5500
 zipSample: ["57770"]
 zipCodes: ["57770"]
 localPaths: ["Oglala Lakota County / coords 43.0300, -102.5500", "Oglala Lakota County / elevation 3248 ft band", "Oglala Lakota County / primary ZIP 57770", "Oglala Lakota County / ZIP 57770 sector"]
-zillowHomeValueUsd: 307869
+zillowHomeValueUsd: 315256
 data_fidelity: "synthetic"
 ---
 

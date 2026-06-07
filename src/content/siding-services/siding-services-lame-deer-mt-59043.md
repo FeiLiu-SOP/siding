@@ -12,7 +12,7 @@ lng: -106.6100
 zipSample: ["59043"]
 zipCodes: ["59043"]
 localPaths: ["Rosebud County / primary ZIP 59043", "Rosebud County / ZIP 59043 sector", "Rosebud County / coords 45.6200, -106.6100", "Rosebud County / elevation 3865 ft band"]
-zillowHomeValueUsd: 431777
+zillowHomeValueUsd: 429495
 data_fidelity: "synthetic"
 ---
 

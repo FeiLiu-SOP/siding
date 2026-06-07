@@ -12,7 +12,7 @@ lng: -80.2700
 zipSample: ["27292", "27351"]
 zipCodes: ["27351", "27292"]
 localPaths: ["Davidson County / coords 35.6500, -80.2700", "Davidson County / primary ZIP 27351", "Davidson County / ZIP 27292 sector", "Davidson County / elevation 725 ft band", "Davidson County / ZIP 27351 sector"]
-zillowHomeValueUsd: 316979
+zillowHomeValueUsd: 331448
 data_fidelity: "synthetic"
 ---
 

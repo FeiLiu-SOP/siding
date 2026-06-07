@@ -12,7 +12,7 @@ lng: -97.2900
 zipSample: ["78359"]
 zipCodes: ["78359"]
 localPaths: ["San Patricio County / coords 27.9200, -97.2900", "San Patricio County / ZIP 78359 sector", "San Patricio County / primary ZIP 78359", "San Patricio County / elevation 43 ft band"]
-zillowHomeValueUsd: 299850
+zillowHomeValueUsd: 300475
 data_fidelity: "synthetic"
 ---
 

@@ -12,7 +12,7 @@ lng: -84.0600
 zipSample: ["45433", "45324"]
 zipCodes: ["45433", "45324"]
 localPaths: ["Greene County / ZIP 45324 sector", "Greene County / coords 39.8100, -84.0600", "Greene County / elevation 801 ft band", "Greene County / primary ZIP 45433", "Greene County / ZIP 45433 sector"]
-zillowHomeValueUsd: 242238
+zillowHomeValueUsd: 233481
 data_fidelity: "synthetic"
 ---
 

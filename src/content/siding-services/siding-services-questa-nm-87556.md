@@ -12,7 +12,7 @@ lng: -105.5900
 zipSample: ["87556"]
 zipCodes: ["87556"]
 localPaths: ["Taos County / elevation 7552 ft band", "Taos County / ZIP 87556 sector", "Taos County / primary ZIP 87556", "Taos County / coords 36.7100, -105.5900"]
-zillowHomeValueUsd: 320336
+zillowHomeValueUsd: 314630
 data_fidelity: "synthetic"
 ---
 

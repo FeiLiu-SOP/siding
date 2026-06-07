@@ -12,7 +12,7 @@ lng: -91.6700
 zipSample: ["72082"]
 zipCodes: ["72082"]
 localPaths: ["White County / elevation 226 ft band", "White County / ZIP 72082 sector", "White County / coords 35.2400, -91.6700", "White County / primary ZIP 72082"]
-zillowHomeValueUsd: 188426
+zillowHomeValueUsd: 204380
 data_fidelity: "synthetic"
 ---
 
