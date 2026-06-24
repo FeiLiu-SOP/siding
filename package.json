@@ -34,7 +34,7 @@
                          "@astrojs/sitemap":  "^3.7.2",
                          "astro":  "^6.1.2"
                      },
-    "deploy_nonce": "d0519b9028af010c",
-    "build_id": "e9999b91eda0"
+    "deploy_nonce": "687dd8201f0cbf81",
+    "build_id": "c9d651e9599a"
 }
 
